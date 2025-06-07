@@ -1,0 +1,139 @@
+.form-container1 {
+    width: 50%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff; /* White background */
+    border-radius: 10px;
+    border: 2px solid #db4444; /* Professional border color */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .form-container h4 {
+    margin-bottom: 20px;
+    color: #db4444;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .my .con {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 60px;
+}
+
+.first {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px;
+}
+
+
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+  }
+  
+  input:focus,
+  textarea:focus,
+  select:focus {
+    border: 2px solid #db4444;
+    outline: none;
+  }
+  
+  .color-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .upload-container {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .upload-container input {
+    display: none;
+  }
+  
+  .upload-container label {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #db4444;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .upload-container label:hover {
+    background-color: #c0392b;
+  }
+  
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .cancel-btn,
+  .save-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .cancel-btn {
+    background-color: #888;
+    color: white;
+  }
+  
+  .save-btn {
+    background-color: #db4444;
+    color: white;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #666;
+  }
+  
+  .save-btn:hover {
+    background-color: #c0392b;
+  }
+  .left_side a {
+    text-decoration: none;
+    color: #999; /* Light gray color for non-active items */
+    transition: color 0.3s ease;
+}
+
+.left_side a:hover {
+    color: #db4444; /* Red on hover */
+}
+
+.left_side .active a {
+    color: #db4444; /* Red for the active page */
+    font-weight: bold;
+}

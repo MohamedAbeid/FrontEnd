@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/login form.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+    <div class="wrapper">
+        <form id="signupForm">
+            <h1>Sign Up to Smart Shop</h1>
+            <p>Enter your details below</p>
+            <div class="input-box">
+                <input type="text" id="name" placeholder="Name" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="email" id="email" placeholder="Email or Phone Number" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Password" required>
+                <i class='bx bxs-lock'></i>
+            </div>
+        <div class="input-box">
+            <input type="password" id="passwordConfirm" placeholder="Password Confirm" required>
+            <i class='bx bxs-lock'></i>
+        </div>
+
+            <button type="submit" class="btn">Sign Up</button>
+            <div class="register-link"> 
+                <p>Already have an account? <a href="login_form.html">Login</a></p>
+            </div>
+        </form>
+    </div>
+
+        <script type="module" src="./js/signup.js"></script>
+
+    
+</body>
+</html>

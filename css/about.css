@@ -1,0 +1,181 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.story {
+  padding: 50px 0;
+  background-color: white;
+}
+
+.con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.talk {
+  width: 50%;
+  padding-right: 20px;
+}
+
+.talk h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.talk p {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+  margin: 20px 0;
+  padding: 0 10px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image img {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+}
+/* Statistics */
+.stats .boxs {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stats .container .box {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  text-align: center;
+  height: 230px;
+  width: 270px;
+  transition: 0.3s;
+}
+.stats .container .box:hover {
+  cursor: pointer;
+  transform: translateY(-15px);
+}
+.stats .container .box img {
+  padding: 18px 0;
+}
+
+.stats .container .box h3 {
+  font-size: 32px;
+  font-weight: 700;
+  color: black;
+}
+.stats .container .box p {
+  font-size: 16px;
+  color: #000000;
+  font-weight: 400;
+  margin: 15px 0;
+}
+.stats .container .box:hover {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  background-color: #db4444;
+}
+.stats .container .box:hover h3,
+.stats .container .box:hover p {
+  color: white;
+}
+.team {
+  padding: 100px 0;
+}
+.team .boxs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.team .boxs .photo {
+  width: 370px;
+  background-color: #f5f5f5;
+}
+.team .boxs .box {
+  border: 1px solid #d9dbe9d3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team .boxs .box:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team .boxs .box .photo img {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.team .boxs .box .text {
+  padding: 20px 15px;
+}
+.team .boxs .box h4 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.team .boxs .box p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 20px;
+}
+.team .boxs .box .social {
+  display: flex;
+  align-items: center;
+}
+.team .boxs .box .social a img {
+  margin-right: 10px;
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .con {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .talk, .image {
+    width: 100%;
+    padding: 0;
+  }
+
+  .talk {
+    padding-bottom: 20px;
+  }
+
+  .image img {
+    width: 100%;
+  }
+
+  .stats .boxs {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .team .boxs {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

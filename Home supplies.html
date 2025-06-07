@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Shop</title>
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="Images/shop-bag-svgrepo-com.svg" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="container">
+        <!-- Start Top Header -->
+        <div class="top_header">
+          <span
+            >Summer Sale For All Swim Suits And Free Express Delivery - OFF
+            50%!<a href="product10.html" class="btn">ShopNow</a></span
+          >
+          <span class="lang">
+            <img
+              class="Moon"
+              class="toggle-btn"
+              onclick="toggleMode()"
+              src="Images/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+            />
+            English <img src="Images/DropDown.svg" alt="" />
+          </span>
+        </div>
+        <!-- End Top Header -->
+        <!-- Start Nav Bar -->
+        <div class="heading">
+          <div class="container">
+            <div class="logo">
+              <h1>
+                <a href="index.html" style="color: #db4444">Smart Shop</a>
+              </h1>
+            </div>
+            <div class="links">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="sginup.html">Sign Up</a></li>
+              </ul>
+            </div>
+            <div class="search">
+              <div class="sea">
+                <input
+                  type="search"
+                  name=""
+                  id="searchInput"
+                  placeholder="What are you looking for?"
+                  oninput="searchProducts()"
+                />
+                <img src="Images/Component 2.svg" alt="" />
+              </div>
+              <a href="favorites.html">
+                <img src="Images/Vector.svg" alt="" />
+              </a>
+              <a href="cart.html" class="cart-icon">
+                <img src="Images/Cart1.svg" alt="" />
+                <span class="cart-count">0</span>
+              </a>
+              <div class="account">
+                <img src="Images/User=Off.svg" alt="" />
+                <ul>
+                  <li>
+                    <img src="Images/user.svg" alt="" />
+                    <a href="MyAccount.html">Manage My Account</a>
+                  </li>
+                  <li>
+                    <img src="Images/icon-mallbag.svg" alt="" />
+                    <a href="#">My Order</a>
+                  </li>
+                  <li>
+                    <img src="Images/icon-cancel.svg" alt="" />
+                    <a href="#">My Cancellations</a>
+                  </li>
+                  <li>
+                    <img src="Images/Icon-Reviews.svg" alt="" />
+                    <a href="#">My Reviews</a>
+                  </li>
+                  <li id="logoutBtn">
+                    <img src="Images/Icon-logout.svg" alt="" />
+                    <a href="#">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Nav Bar -->
+      </div>
+    </div>
+
+    <!-- Start Our Products -->
+    <div class="our">
+      <div class="container">
+        <div class="head">
+          <br />
+          <span></span>
+          <h3>Our Products</h3>
+          <br />
+        </div>
+        <div class="flash">
+          <div class="left">
+            <h2>Women's Products</h2>
+          </div>
+        </div>
+        <div class="scroll" id="productsContainer"></div>
+      </div>
+    </div>
+    <!-- End Our Products -->
+
+    <!-- Start Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="boxs">
+          <div class="box" data-product='{"name": "", "price": 1230}'>
+            <div class="logo">
+              <a href="index.html" style="color: #db4444">Smart Shop</a>
+              <h4>Subscribe</h4>
+              <p>Get 10% off your first order</p>
+              <div class="form">
+                <input
+                  type="email"
+                  name=""
+                  id=""
+                  placeholder="Enter your email"
+                />
+                <img src="Images/icon-send.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="box" data-product='{"name": "", "price": 1230}'>
+            <div class="info">
+              <h4>Support</h4>
+              <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+              <p>smartshop@gmail.com</p>
+              <p>+88015-88888-9999</p>
+            </div>
+          </div>
+          <div class="box" data-product='{"name": "", "price": 1230}'>
+            <div class="account">
+              <h4>Account</h4>
+              <ul>
+                <li><a href="MyAccount.html">My Account</a></li>
+                <li><a href="login_form.html">Login / Register</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="Wishlist.html">Shop</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="box" data-product='{"name": "", "price": 1230}'>
+            <div class="link">
+              <h4>Quick Link</h4>
+              <ul>
+                <li><a href="Erorr.html">Privacy Policy</a></li>
+                <li><a href="Erorr.html">Terms Of Use</a></li>
+                <li><a href="Erorr.html">FAQ</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="app">
+            <h4>Download App</h4>
+            <p>Save $3 with App New User Only</p>
+            <div class="qr">
+              <img src="Images/Qr Code.svg" alt="" />
+              <div class="googleandapple">
+                <a href="#"><img src="Images/GooglePlay.svg" alt="" /></a>
+                <a href="#"><img src="Images/AppStore.svg" alt="" /></a>
+              </div>
+            </div>
+            <div class="social">
+              <a href="#"><img src="Images/Icon-Facebook.svg" alt="" /></a>
+              <a href="#"><img src="Images/Icon-Twitter.svg" alt="" /></a>
+              <a href="#"><img src="Images/icon-instagram.svg" alt="" /></a>
+              <a href="#"><img src="Images/Icon-Linkedin.svg" alt="" /></a>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <img src="Images/icon-copyright.svg" alt="" />
+          <p>Copyright Creative Code 2024. All right reserved</p>
+        </div>
+      </div>
+    </div>
+    <!-- End Footer -->
+    <script src="./index.js"></script>
+    <script src="./main.js"></script>
+
+    <script src="./conAPI/productde.js"></script>
+    <script src="./conAPI/loginAndAccount.js"></script>
+    <script src="./conAPI/logout.js"></script>
+
+    <script>
+      // اسم الفئة المطلوب عرض منتجاتها
+      const categoryName = "Home Supplies";
+
+      const token = localStorage.getItem("token");
+      document.querySelector(".left h2").textContent = categoryName;
+
+      async function fetchProductsByCategory() {
+        try {
+          const response = await fetch("http://localhost:8000/products", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          const result = await response.json();
+          const allProducts = result.data || [];
+
+          // فلترة حسب اسم الفئة
+          const filteredProducts = allProducts.filter(
+            (product) =>
+              product.category && product.category.name === categoryName
+          );
+
+          const container = document.getElementById("productsContainer");
+          container.innerHTML = "";
+
+          if (filteredProducts.length === 0) {
+            container.innerHTML = "<p>Not Products</p>";
+            return;
+          }
+          // عرض المنتجات
+          filteredProducts.forEach((product, index) => {
+            const oldPrice = product.price || 0;
+            const newPrice = product.priceAfterDiscount || oldPrice;
+
+            const box = document.createElement("div");
+            box.classList.add("box");
+
+            box.innerHTML = `
+        <div class="box" data-id="${product._id}">
+          <div class="photo">
+            <button onclick="location.href='productdes.html?id=${product._id}'">
+              <img src="${product.imageCover}" alt="${
+              product.title
+            }" width="190px" />
+              ${
+                oldPrice !== newPrice
+                  ? `<span class="dis">-${Math.round(
+                      ((oldPrice - newPrice) / oldPrice) * 100
+                    )}%</span>`
+                  : ""
+              }
+              <span class="fev" data-product-id="product${index}">
+                <i class="fa-regular fa-heart" id="heart-product${index}"></i>
+              </span>
+            </button>
+      <a href="#" class="add_cart" onclick="addToCart('${
+        product._id
+      }')">Add To Cart</a>
+
+          </div>
+          <div class="text">
+            <h3>${product.title}</h3>
+            <div class="salary">
+              <span>$${newPrice}</span>
+              ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
+            </div>
+            <div class="star">
+              <img src="Images/Star.svg" alt="star" />
+              <img src="Images/Star.svg" alt="star" />
+              <img src="Images/Star.svg" alt="star" />
+              <img src="Images/Star.svg" alt="star" />
+              <img src="Images/Star.svg" alt="star" />
+            </div>
+          </div>
+        </div>
+        `;
+
+            container.appendChild(box);
+          });
+        } catch (error) {
+          console.error("❌ Error fetching products:", error);
+          document.getElementById("productsContainer").innerHTML =
+            "<p style='color:red;'>حدث خطأ أثناء تحميل المنتجات.</p>";
+        }
+      }
+
+      fetchProductsByCategory();
+    </script>
+    <script src="./conAPI/cart.js"></script>
+  </body>
+</html>

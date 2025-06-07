@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyAccount</title>
+    <link rel="stylesheet" href="./css/MyAccount.css" />
+    <link rel="stylesheet" href="./css/address.css" />
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="Images/shop-bag-svgrepo-com.svg" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <!-- Start Top Header -->
+        <div class="top_header">
+          <span
+            >Summer Sale For All Swim Suits And Free Express Delivery - OFF
+            50%!<a href="product10.html" class="btn">ShopNow</a></span
+          >
+          <span class="lang">
+            <img
+              class="Moon"
+              class="toggle-btn"
+              onclick="toggleMode()"
+              src="Images/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+            />
+            English <img src="Images/DropDown.svg" alt="" />
+          </span>
+        </div>
+        <!-- End Top Header -->
+        <!-- Start Nav Bar -->
+        <div class="heading">
+          <div class="container">
+            <div class="logo">
+              <h1>
+                <a href="index.html" style="color: #db4444">Smart Shop</a>
+              </h1>
+            </div>
+            <div class="links">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="sginup.html">Sign Up</a></li>
+              </ul>
+            </div>
+            <div class="search">
+              <a href="favorites.html">
+                <img src="Images/Vector.svg" alt="" />
+              </a>
+              <a href="cart.html" class="cart-icon">
+                <img src="Images/Cart1.svg" alt="" />
+                <span class="cart-count">0</span>
+              </a>
+              <div class="account">
+                <img src="Images/User=Off.svg" alt="" />
+                <ul>
+                  <li>
+                    <img src="Images/user.svg" alt="" />
+                    <a href="MyAccount.html" class="active"
+                      >Manage My Account</a
+                    >
+                  </li>
+                  <li>
+                    <img src="Images/icon-mallbag.svg" alt="" />
+                    <a href="#">My Order</a>
+                  </li>
+                  <li>
+                    <img src="Images/icon-cancel.svg" alt="" />
+                    <a href="#">My Cancellations</a>
+                  </li>
+                  <li>
+                    <img src="Images/Icon-Reviews.svg" alt="" />
+                    <a href="#">My Reviews</a>
+                  </li>
+                  <li id="logoutBtn">
+                    <img src="Images/Icon-logout.svg" alt="" />
+                    <a href="#">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Nav Bar -->
+      </div>
+    </div>
+    <div class="my">
+      <div class="container">
+        <div class="first">
+          <h1>Welcome <span class="m" id="user-name">!</span></h1>
+        </div>
+        <div class="con">
+          <nav class="left_side">
+            <ul>
+              
+            </ul>
+          </nav>
+          <div class="right">
+            <h4>Add Product</h4>
+            <form id="addProductForm">
+              <div class="boxs">
+                <div class="box">
+                  <label for="title">Title</label>
+                  <input type="text" id="title" required/>
+                </div>
+              </div>
+              <div class="boxs">
+                <div class="box">
+                  <label for="quantity">Quantity</label>
+                  <input type="text" id="quantity" required/>
+                </div>
+              </div>
+              <div class="boxs">
+                <div class="box">
+                  <label for="title">Price</label>
+                  <input type="text" id="price" required/>
+                </div>
+              </div>
+              <div class="boxs">
+                <div class="box">
+                  <label for="title">PriceAfterDiscount</label>
+                  <input type="text" id="priceAfterDiscount" />
+                </div>
+              </div>
+              <div class="boxs">
+                <div class="box">
+                  <label for="title">Description</label>
+                  <textarea name="description" id="description" required></textarea>
+                </div>
+              </div>
+              <div class="boxs">
+                <div class="box">
+                  <label for="category">Category</label>
+                  <select name="category" id="category" required>
+                    <option value="" disabled selected>Select a category</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="boxs">
+                <div class="box">
+                  <label for="imageCover">Image Cover</label>
+                  <input type="file" id="imageCover" accept="image/*" required />
+                </div>
+              </div>
+              
+              <div class="boxs">
+                <div class="box">
+                  <label for="images">Images (Max 4)</label>
+                  <input type="file" id="images" accept="image/*" multiple />
+                </div>
+              </div>
+              
+              <div class="boxs">
+                <div class="box">
+                  <label for="colors">Choose Colors</label>
+                  <div id="colorOptions" class="color-options"></div>
+                </div>
+              </div>
+              
+              
+              <div class="button">
+                <input type="reset" value="Cancel" />
+                <input type="submit" value="Save Changes" />
+              </div>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    <!-- Start Footer -->
+    <!-- Start Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="boxs">
+          <div class="box">
+            <div class="logo">
+              <a href="index.html" style="color: #db4444">Smart Shop</a>
+              <h4>Subscribe</h4>
+              <p>Get 10% off your first order</p>
+              <div class="form">
+                <input
+                  type="email"
+                  name=""
+                  id=""
+                  placeholder="Enter your email"
+                />
+                <img src="Images/icon-send.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="info">
+              <h4>Support</h4>
+              <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+              <p>smartshop@gmail.com</p>
+              <p>+88015-88888-9999</p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="account">
+              <h4>Account</h4>
+              <ul>
+                <li><a href="MyAccount.html">My Account</a></li>
+                <li><a href="login_form.html">Login / Register</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="Wishlist.html">Shop</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="box">
+            <div class="link">
+              <h4>Quick Link</h4>
+              <ul>
+                <li><a href="Erorr.html">Privacy Policy</a></li>
+                <li><a href="Erorr.html">Terms Of Use</a></li>
+                <li><a href="Erorr.html">FAQ</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="app">
+            <h4>Download App</h4>
+            <p>Save $3 with App New User Only</p>
+            <div class="qr">
+              <img src="Images/Qr Code.svg" alt="" />
+              <div class="googleandapple">
+                <a href="#"><img src="Images/GooglePlay.svg" alt="" /></a>
+                <a href="#"><img src="Images/AppStore.svg" alt="" /></a>
+              </div>
+            </div>
+            <div class="social">
+              <a href="#"><img src="Images/Icon-Facebook.svg" alt="" /></a>
+              <a href="#"><img src="Images/Icon-Twitter.svg" alt="" /></a>
+              <a href="#"><img src="Images/icon-instagram.svg" alt="" /></a>
+              <a href="#"><img src="Images/Icon-Linkedin.svg" alt="" /></a>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <img src="Images/icon-copyright.svg" alt="" />
+          <p>Copyright Creative Code 2024. All right reserved</p>
+        </div>
+      </div>
+    </div>
+    <!-- End Footer -->
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/home.js"></script>
+    <script type="module" src="./js/loginAndAccount.js"></script>
+    <script type="module" src="./js/admin_user.js"></script>
+    <script type="module" src="./js/logout.js"></script>
+    <script type="module" src="./js/cart.js"></script>
+    <script type="module" src="./js/addcategory.js"></script>
+    <script type="module" src="./js/category.js"></script>
+    <script type="module" src="./js/address.js"></script>
+    <script type="module" src="./js/login.js"></script>
+    <script type="module" src="./js/logout.js"></script>
+    <script type="module" src="./js/myaccount.js"></script>
+    <script type="module" src="./js/productde.js"></script>
+    <script type="module" src="./js/signup.js"></script>
+    <script type="module" src="./js/addproduct.js"></script>
+
+
+  </body>
+</html>

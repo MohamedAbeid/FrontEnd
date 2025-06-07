@@ -1,0 +1,56 @@
+.address-card {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 15px;
+  background-color: #fdfdfd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.address-card:hover {
+  transform: scale(1.01);
+}
+
+.address-card h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.address-card p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.address-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.address-actions button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #b52a37;
+}

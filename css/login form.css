@@ -1,0 +1,162 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css);
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: "poppins", sans-serif;
+}
+
+body {
+  background: url(../Images/WhatsApp\ Image\ 2024-12-18\ at\ 12.36.21_e6347886.jpg)
+    no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.wrapper {
+  width: 420px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #1a1818;
+  border-radius: 10px;
+  padding: 10px 40px;
+}
+
+.wrapper h1 {
+  font-size: 36px;
+  text-align: center;
+}
+
+.wrapper .input-box {
+  position: relative;
+  width: 100%;
+  height: 50 px;
+  margin: 30px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #0f0e0e;
+  padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+  color: #080808;
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+.wrapper .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+  accent-color: #db4444;
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: #db4444;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.wrapper .btn {
+  width: 100%;
+  height: 45px;
+  background: #db4444;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+}
+
+.wrapper .register-link {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+.register-link p a {
+  color: #db4444;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link p a :hover {
+  text-decoration: underline;
+}
+p {
+  color: #080808;
+  text-align: center;
+}
+h1 {
+  color: #080808;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .wrapper h1 {
+    font-size: 28px;
+  }
+
+  .input-box {
+    margin: 20px 0;
+  }
+
+  .input-box input {
+    font-size: 14px;
+    padding: 15px 40px 15px 15px;
+  }
+
+  .input-box i {
+    font-size: 18px;
+  }
+
+  .remember-forgot {
+    font-size: 12px;
+  }
+
+  .wrapper .btn {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .wrapper .register-link {
+    font-size: 12px;
+  }
+}

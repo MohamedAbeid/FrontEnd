@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.aa {
+  display: flex;
+  align-items: flex-start;
+  margin: 60px 0;
+}
+
+.d1 {
+  margin-right: 20px;
+  width: 16.66%;
+  align-items: center;
+}
+
+.d2 {
+  background-color: #f5f5f5;
+  box-shadow: 0px 0px 10px 10px #00000021;
+}
+
+.d3 {
+  margin-right: 45px;
+}
+.d3 h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+.d3 p {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 12px 15px 12px 0;
+  display: flex;
+  align-items: center;
+}
+.d3 h3 {
+  font-size: 24px;
+  font-weight: 400;
+}
+.d3 p input[type="radio"] {
+  margin: 0 10px;
+  height: 20px;
+  width: 20px;
+}
+.d3 p input[type="radio"]:first-child {
+  accent-color: #db4444;
+}
+.d3 .add_cart {
+  background-color: white;
+  border: 1px solid #00000057;
+  border: 1px solid;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+  width: 35px;
+  height: 35px;
+  font-size: 15px;
+  padding: 15px 30px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.a {
+  text-align: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #00000057;
+}
+
+.a:hover {
+  color: white;
+  background-color: #db4444;
+}
+
+.pic {
+  padding: 20px;
+  width: 75px;
+  margin-bottom: 15px;
+  height: 60px;
+  transition: 0.3s;
+  box-shadow: 0px 0px 10px 10px #00000021;
+}
+
+.pic:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+.inp {
+  display: inline;
+}
+
+.border {
+  border: 1px solid #00000057;
+  width: fit-content;
+  border-radius: 4px;
+}
+.border .box {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px 0;
+  border-bottom: 1px solid #00000057;
+}
+.border .box p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.border .box p:last-child {
+  font-size: 12px;
+  font-weight: 400;
+}
+.border .left img {
+  margin-right: 15px;
+}
+
+@media (max-width: 768px) {
+  .aa {
+    flex-direction: column;
+    align-items: center;
+  }
+  .d1,
+  .d3 {
+    width: 100%;
+    margin-right: 0;
+  }
+  .d3 p {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .d3 button {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .pic {
+    width: 100%;
+    height: auto;
+  }
+  .border .box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .border .box p {
+    margin-bottom: 10px;
+  }
+}

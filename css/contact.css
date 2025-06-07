@@ -1,0 +1,109 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.vcall {
+  margin: 65px 0;
+}
+
+.vcall .boxs {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.call {
+  width: 340px;
+  border: 1px solid #00000057;
+  padding: 20px 30px;
+  border-radius: 6px;
+}
+.call .icon {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+.call .icon img {
+  margin-right: 15px;
+}
+.call p {
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+}
+.call .call_box:first-child {
+  border-bottom: 1px solid #000000;
+}
+form {
+  border: 1px solid #00000057;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+form input[type="text"],
+form input[type="email"] {
+  background-color: #f6f4f0;
+  height: 50px;
+  border: none;
+  border-radius: 4px;
+  padding-left: 2%;
+  width: 199px;
+}
+
+textarea {
+  background-color: #f6f4f0;
+  border-radius: 6px;
+  border: none;
+  width: 605px;
+  height: 207px;
+  padding: 20px;
+}
+
+form input[type="submit"] {
+  display: block;
+  margin-left: auto;
+  width: 215px;
+  background-color: #db4444;
+  color: #ffffff;
+  border: none;
+  height: 56px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+img {
+  padding-top: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  margin-right: 10px;
+}
+
+.a {
+  margin-top: 20px;
+  margin-left: 65px;
+}
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .vcall .boxs {
+    flex-direction: column;
+    align-items: center;
+  }
+  .call, form {
+    width: 100%;
+    max-width: 340px;
+  }
+  textarea {
+    width: 100%;
+    max-width: 340px;
+  }
+  form input[type="text"],
+  form input[type="email"] {
+    width: 100%;
+    max-width: 340px;
+  }
+}

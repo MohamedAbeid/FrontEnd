@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CheckOut</title>
+    <link rel="stylesheet" href="css/checkout.css" />
+    <!-- Style CSS  -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="Images/shop-bag-svgrepo-com.svg" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <!-- Start Top Header -->
+        <div class="top_header">
+          <span
+            >Summer Sale For All Swim Suits And Free Express Delivery - OFF
+            50%!<a href="product10.html" class="btn">ShopNow</a></span
+          >
+          <span class="lang">
+            <img
+              class="Moon"
+              class="toggle-btn"
+              onclick="toggleMode()"
+              src="Images/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+            />
+            English <img src="Images/DropDown.svg" alt="" />
+          </span>
+        </div>
+        <!-- End Top Header -->
+        <!-- Start Nav Bar -->
+        <div class="heading">
+          <div class="container">
+            <div class="logo">
+              <h1>
+                <a href="index.html" style="color: #db4444">Smart Shop</a>
+              </h1>
+            </div>
+            <div class="links">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="sginup.html">Sign Up</a></li>
+              </ul>
+            </div>
+            <div class="search">
+              <div class="sea">
+                <input
+                  type="search"
+                  name=""
+                  id=""
+                  placeholder="What are you looking for?"
+                />
+                <img src="Images/Component 2.svg" alt="" />
+              </div>
+              <a href="#"><img src="Images/Vector.svg" alt="" /></a>
+              <a href="cart.html" class="cart-icon">
+                <img src="Images/Cart1.svg" alt="" />
+                <span class="cart-count">0</span>
+              </a>
+              <div class="account">
+                <img src="Images/User=Off.svg" alt="" />
+                <ul>
+                  <li>
+                    <img src="Images/user.svg" alt="" />
+                    <a href="MyAccount.html">Manage My Account</a>
+                  </li>
+                  <li>
+                    <img src="Images/icon-mallbag.svg" alt="" />
+                    <a href="#">My Order</a>
+                  </li>
+                  <li>
+                    <img src="Images/icon-cancel.svg" alt="" />
+                    <a href="#">My Cancellations</a>
+                  </li>
+                  <li>
+                    <img src="Images/Icon-Reviews.svg" alt="" />
+                    <a href="#">My Reviews</a>
+                  </li>
+                  <li>
+                    <img src="Images/Icon-logout.svg" alt="" />
+                    <a href="#">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Nav Bar -->
+      </div>
+    </div>
+    <div class="center">
+      <div class="container">
+        <h3>Billing Details</h3>
+        <div class="box">
+          <div class="left">
+            <form action="" id="shippingForm">
+              <label for="fr">Name</label>
+              <input type="text" name="" id="fr" required />
+              <label for="cn">Company Name</label>
+              <input type="text" name="" id="cn" />
+              <label for="add">Street Address</label>
+              <input type="text" name="" id="add" required />
+              <label for="ap">Apartment, floor, etc. (optional)</label>
+              <input type="text" name="" id="ap" />
+              <label for="to">Town/City</label>
+              <input type="text" name="" id="to" required />
+              <label for="ph">Phone Number</label>
+              <input type="text" name="" id="ph" required />
+              <label for="em">Email</label>
+              <input type="email" name="" id="em" required />
+              <div class="check">
+                <input type="checkbox" name="" id="ch" />
+                <label for="ch"
+                  >Save this information for faster check-out next time</label
+                >
+              </div>
+            </form>
+          </div>
+          <div class="right">
+            <div class="box">
+              <div class="box_t" id="productsList"></div>
+            </div>
+            <div class="box">
+              <div class="box_t">
+                <div class="content">
+                  <div class="image">
+                    <span>Total:</span>
+                  </div>
+                  <div class="salary" id="total">$0</div>
+                </div>
+              </div>
+            </div>
+            <div class="box">
+              <div class="box_t">
+                <div class="content">
+                  <div class="image">
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      id="bank"
+                      value="Bank"
+                    />
+                    <label for="bank">Bank</label>
+                  </div>
+                  <div class="salary">
+                    <img src="Images/Frame 834.svg" alt="" />
+                  </div>
+                </div>
+
+                <div class="content">
+                  <div class="image">
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      id="cash"
+                      value="Cash on delivery"
+                    />
+                    <label for="cash">Cash on delivery</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box">
+              <input type="text" placeholder="Coupon Code" />
+              <a href="#" class="button">Apply Coupon</a>
+            </div>
+            <div class="box">
+              <a id="placeOrderBtn">Place Order</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Start Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="boxs">
+          <div class="box">
+            <div class="logo">
+              <a href="index.html" style="color: #db4444">Smart Shop</a>
+              <h4>Subscribe</h4>
+              <p>Get 10% off your first order</p>
+              <div class="form">
+                <input
+                  type="email"
+                  name=""
+                  id=""
+                  placeholder="Enter your email"
+                />
+                <img src="Images/icon-send.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="info">
+              <h4>Support</h4>
+              <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+              <p>smartshop@gmail.com</p>
+              <p>+88015-88888-9999</p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="account">
+              <h4>Account</h4>
+              <ul>
+                <li><a href="MyAccount.html">My Account</a></li>
+                <li><a href="login_form.html">Login / Register</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="Wishlist.html">Shop</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="box">
+            <div class="link">
+              <h4>Quick Link</h4>
+              <ul>
+                <li><a href="Erorr.html">Privacy Policy</a></li>
+                <li><a href="Erorr.html">Terms Of Use</a></li>
+                <li><a href="Erorr.html">FAQ</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="app">
+            <h4>Download App</h4>
+            <p>Save $3 with App New User Only</p>
+            <div class="qr">
+              <img src="Images/Qr Code.svg" alt="" />
+              <div class="googleandapple">
+                <a href="#"><img src="Images/GooglePlay.svg" alt="" /></a>
+                <a href="#"><img src="Images/AppStore.svg" alt="" /></a>
+              </div>
+            </div>
+            <div class="social">
+              <a href="#"><img src="Images/Icon-Facebook.svg" alt="" /></a>
+              <a href="#"><img src="Images/Icon-Twitter.svg" alt="" /></a>
+              <a href="#"><img src="Images/icon-instagram.svg" alt="" /></a>
+              <a href="#"><img src="Images/Icon-Linkedin.svg" alt="" /></a>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <img src="Images/icon-copyright.svg" alt="" />
+          <p>Copyright Creative Code 2024. All right reserved</p>
+        </div>
+      </div>
+    </div>
+    <!-- End Footer -->
+    <script src="./index.js"></script>
+    <script src="./main.js"></script>
+    <script src="./conAPI/cart.js"></script>
+    <script src="./conAPI/loginAndAccount.js"></script>
+    <script src="./conAPI/logout.js"></script>
+    <script>
+      const productsList = document.getElementById("productsList");
+      const totalDiv = document.getElementById("total");
+      const token = localStorage.getItem("token");
+
+      async function fetchProductDetails(productId) {
+        try {
+          const res = await fetch(
+            `http://localhost:8000/products/${productId}`
+          );
+          const data = await res.json();
+          return data.data; // المنتج نفسه
+        } catch (err) {
+          console.error("خطأ أثناء تحميل بيانات المنتج:", err);
+          return null;
+        }
+      }
+
+      async function getCartItems() {
+        try {
+          const response = await fetch("http://localhost:8000/cart", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          const data = await response.json();
+          const cartItems = data.data.cartItems;
+
+          productsList.innerHTML = "";
+          let totalPrice = 0; // لحساب المجموع الكلي
+
+          for (const item of cartItems) {
+            const product = await fetchProductDetails(item.product);
+            if (!product) continue;
+
+            const subtotal = product.priceAfterDiscount * item.quantity;
+            totalPrice += subtotal;
+
+            const productHTML = `
+              <div class="content">
+                <div class="image">
+                  <img src="${product.imageCover}" alt="${product.title}" />
+                  <span>${product.title}</span>
+                </div>
+                <div class="salary">
+                  <span>$${subtotal}</span>
+                </div>
+              </div>
+            `;
+
+            productsList.innerHTML += productHTML;
+          }
+
+          // ✅ عرض المجموع الكلي داخل العنصر #total
+          totalDiv.innerHTML = `$${totalPrice.toFixed(2)}`;
+        } catch (error) {
+          console.error("فشل في تحميل الكارت:", error);
+          productsList.innerHTML = `<p style="color:red;">حدث خطأ أثناء تحميل الكارت.</p>`;
+        }
+      }
+
+      getCartItems();
+    </script>
+    <script>
+      document
+        .getElementById("placeOrderBtn")
+        .addEventListener("click", async function () {
+          const paymentMethodInput = document.querySelector(
+            'input[name="paymentMethod"]:checked'
+          );
+          if (!paymentMethodInput)
+            return alert("Please select a payment method");
+
+          const firstName = document.getElementById("fr").value;
+          const companyName = document.getElementById("cn").value;
+          const streetAddress = document.getElementById("add").value;
+          const apartment = document.getElementById("ap").value;
+          const city = document.getElementById("to").value;
+          const phone = document.getElementById("ph").value;
+          const email = document.getElementById("em").value;
+
+          if (!firstName || !streetAddress || !city || !phone || !email) {
+            return alert("Please fill in all required shipping fields.");
+          }
+
+          const shippingAddress = {
+            details: `${streetAddress}${apartment ? ", " + apartment : ""}${
+              companyName ? ", " + companyName : ""
+            }, ${firstName}`,
+            phone: phone,
+            city: city,
+          };
+
+          const token = localStorage.getItem("token");
+          const cartId = localStorage.getItem("cartId"); // تأكد إنك حفظته قبل كده بعد جلب السلة
+
+          if (!token || !cartId) {
+            return alert("Missing token or cartId");
+          }
+
+          try {
+            const res = await fetch(`http://localhost:8000/orders/${cartId}`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                shippingAddress,
+                paymentMethod: paymentMethodInput.value,
+              }),
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+              window.location.href = "thanks.html";
+              console.log("Order created:", data);
+              // redirect or success message
+            } else {
+              alert("Order failed: " + (data.message || "Unknown error"));
+            }
+          } catch (err) {
+            console.error("Order Error:", err);
+            alert("Something went wrong while placing the order.");
+          }
+        });
+    </script>
+  </body>
+</html>

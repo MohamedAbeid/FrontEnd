@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="Images/shop-bag-svgrepo-com.svg" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <!-- Start Top Header -->
+        <div class="top_header">
+          <span
+            >Summer Sale For All Swim Suits And Free Express Delivery - OFF
+            50%!<a href="product10.html" class="btn">ShopNow</a></span
+          >
+          <span class="lang">
+            <img
+              class="Moon"
+              class="toggle-btn"
+              onclick="toggleMode()"
+              src="Images/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+            />
+            English <img src="Images/DropDown.svg" alt="" />
+          </span>
+        </div>
+        <!-- End Top Header -->
+        <!-- Start Nav Bar -->
+        <div class="heading">
+          <div class="container">
+            <div class="logo">
+              <h1>
+                <a href="index.html" style="color: #db4444">Smart Shop</a>
+              </h1>
+            </div>
+            <div class="links">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="sginup.html">Sign Up</a></li>
+              </ul>
+            </div>
+            <div class="search">
+              <div class="sea">
+                <input
+                  type="search"
+                  name=""
+                  id=""
+                  placeholder="What are you looking for?"
+                />
+                <img src="Images/Component 2.svg" alt="" />
+              </div>
+              <a href="#"><img src="Images/Vector.svg" alt="" /></a>
+              <a href="cart.html" class="cart-icon">
+                <img src="Images/Cart1.svg" alt="" />
+                <span class="cart-count">0</span>
+              </a>
+              <div class="account">
+                <img src="Images/User=Off.svg" alt="" />
+                <ul>
+                  <li>
+                    <img src="Images/user.svg" alt="" />
+                    <a href="MyAccount.html">Manage My Account</a>
+                  </li>
+                  <li>
+                    <img src="Images/icon-mallbag.svg" alt="" />
+                    <a href="#">My Order</a>
+                  </li>
+                  <li>
+                    <img src="Images/icon-cancel.svg" alt="" />
+                    <a href="#">My Cancellations</a>
+                  </li>
+                  <li>
+                    <img src="Images/Icon-Reviews.svg" alt="" />
+                    <a href="#">My Reviews</a>
+                  </li>
+                  <li>
+                    <img src="Images/Icon-logout.svg" alt="" />
+                    <a href="#">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Nav Bar -->
+      </div>
+    </div>
+    <main>
+      <section class="cart-container">
+        <div class="container">
+          <h2>Cart</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody id="cart-body"></tbody>
+          </table>
+          <div class="cart-actions">
+            <a href="Wishlist.html" class="button">Return To Shop</a>
+            <a href="#" class="button">Update Cart</a>
+          </div>
+          <div class="coupon-section">
+            <div class="box">
+              <input
+                type="text"
+                placeholder="Coupon Code"
+                class="coupon-input"
+              />
+              <a href="#" class="button">Apply Coupon</a>
+            </div>
+            <div class="cart-total">
+              <h3>Cart Total</h3>
+              <p>Total: <span>$1750</span></p>
+              <hr />
+              <a href="checkout.html" class="button">Proceed to Checkout</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Start Footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="boxs">
+          <div class="box">
+            <div class="logo">
+              <a href="index.html" style="color: #db4444">Smart Shop</a>
+              <h4>Subscribe</h4>
+              <p>Get 10% off your first order</p>
+              <div class="form">
+                <input
+                  type="email"
+                  name=""
+                  id=""
+                  placeholder="Enter your email"
+                />
+                <img src="Images/icon-send.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="info">
+              <h4>Support</h4>
+              <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
+              <p>smartshop@gmail.com</p>
+              <p>+88015-88888-9999</p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="account">
+              <h4>Account</h4>
+              <ul>
+                <li><a href="MyAccount.html">My Account</a></li>
+                <li><a href="login_form.html">Login / Register</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="Wishlist.html">Shop</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="box">
+            <div class="link">
+              <h4>Quick Link</h4>
+              <ul>
+                <li><a href="Erorr.html">Privacy Policy</a></li>
+                <li><a href="Erorr.html">Terms Of Use</a></li>
+                <li><a href="Erorr.html">FAQ</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="app">
+            <h4>Download App</h4>
+            <p>Save $3 with App New User Only</p>
+            <div class="qr">
+              <img src="Images/Qr Code.svg" alt="" />
+              <div class="googleandapple">
+                <a href="#"><img src="Images/GooglePlay.svg" alt="" /></a>
+                <a href="#"><img src="Images/AppStore.svg" alt="" /></a>
+              </div>
+            </div>
+            <div class="social">
+              <a href="#"><img src="Images/Icon-Facebook.svg" alt="" /></a>
+              <a href="#"><img src="Images/Icon-Twitter.svg" alt="" /></a>
+              <a href="#"><img src="Images/icon-instagram.svg" alt="" /></a>
+              <a href="#"><img src="Images/Icon-Linkedin.svg" alt="" /></a>
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <img src="Images/icon-copyright.svg" alt="" />
+          <p>Copyright Creative Code 2024. All right reserved</p>
+        </div>
+      </div>
+    </div>
+    <!-- End Footer -->
+    <script src="./index.js"></script>
+    <script src="./main.js"></script>
+    <script src="./conAPI/loginAndAccount.js"></script>
+    <script src="./conAPI/cart.js"></script>
+    <script src="./conAPI/logout.js"></script>
+    <!-- <script>
+      async function fetchCart() {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) {
+            alert("لازم تسجل دخول الأول!");
+            return;
+          }
+
+          const response = await fetch("http://localhost:8000/cart", {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error("فيه مشكلة في جلب بيانات السلة");
+          }
+
+          const result = await response.json();
+          console.log("Cart Response:", result);
+
+          const cartItems = result.data.cartItems;
+
+          // جلب تفاصيل المنتجات
+          for (let item of cartItems) {
+            const productResponse = await fetch(
+              `http://localhost:8000/products/${item.product}`,
+              {
+                headers: { Authorization: `Bearer ${token}` },
+              }
+            );
+
+            const productData = await productResponse.json();
+            console.log(
+              `Product Response for ID ${item.product}:`,
+              productData
+            );
+
+            if (productData && productData.data) {
+              const product = productData.data;
+              item.name = product.title || "غير معروف";
+              item.image = product.imageCover || "Images/default.png";
+              item.priceAfterDiscount =
+                product.priceAfterDiscount || product.price || item.price;
+            } else {
+              console.warn(`No product found for ID: ${item.product}`);
+              item.name = "منتج غير موجود";
+              item.image = "Images/default.png";
+              item.priceAfterDiscount = item.price;
+            }
+          }
+
+          displayCart(cartItems);
+        } catch (error) {
+          console.error("حصل خطأ:", error);
+          alert("فيه مشكلة في تحميل السلة!");
+        }
+      }
+
+      function displayCart(cartItems) {
+        const cartBody = document.getElementById("cart-body");
+        cartBody.innerHTML = "";
+
+        let total = 0;
+
+        cartItems.forEach((item) => {
+          const subtotal = item.priceAfterDiscount * item.quantity;
+          total += subtotal;
+
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td class="product">
+              <img src="${item.image}" alt="${
+            item.name
+          }" style="width: 50px; height: 50px;">
+              <span>${item.name}</span>
+            </td>
+            <td>$${item.priceAfterDiscount.toFixed(2)}</td>
+            <td>
+              <input type="number" value="${
+                item.quantity
+              }" min="1" onchange="updateQuantity('${item._id}', this.value)">
+            </td>
+            <td>$${subtotal.toFixed(2)}</td>
+            <td>
+              <button onclick="removeFromCart('${item._id}')">🗑️</button>
+            </td>
+          `;
+          cartBody.appendChild(row);
+        });
+
+        // تحديث إجمالي السلة
+        const totalElement = document.querySelector(".cart-total span");
+        if (totalElement) {
+          totalElement.textContent = `$${total.toFixed(2)}`;
+        }
+      }
+
+      async function updateQuantity(cartItemId, newQuantity) {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) {
+            alert("لازم تسجل دخول!");
+            return;
+          }
+
+          const response = await fetch(
+            `http://localhost:8000/cart/${cartItemId}`,
+            {
+              method: "PUT",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ quantity: parseInt(newQuantity) }),
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("فيه مشكلة في تحديث الكمية");
+          }
+
+          fetchCart();
+        } catch (error) {
+          console.error("حصل خطأ:", error);
+          alert("فيه مشكلة في تحديث الكمية، حاول تاني!");
+        }
+      }
+
+      async function removeFromCart(cartItemId) {
+        try {
+          const token = localStorage.getItem("token");
+          if (!token) {
+            alert("لازم تسجل دخول!");
+            return;
+          }
+
+          const response = await fetch(
+            `http://localhost:8000/cart/${cartItemId}`,
+            {
+              method: "DELETE",
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("فيه مشكلة في الحذف");
+          }
+
+          alert("تم حذف المنتج من السلة!");
+          fetchCart();
+        } catch (error) {
+          console.error("حصل خطأ:", error);
+          alert("فيه مشكلة في الحذف، حاول تاني!");
+        }
+      }
+
+      window.onload = fetchCart;
+    </script> -->
+  </body>
+</html>
