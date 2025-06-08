@@ -29,6 +29,8 @@ async function addToCart(productId) {
   }
 }
 
+window.addToCart = addToCart;
+
 async function fetchCart() {
   try {
     const token = localStorage.getItem("token");
@@ -37,7 +39,7 @@ async function fetchCart() {
       return;
     }
 
-    const response = await fetch("http://localhost:8000/cart", {
+    const response = await fetch(`${BASE_URL}/cart`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -56,7 +58,7 @@ async function fetchCart() {
     // جلب تفاصيل كل منتج
     for (let item of cartItems) {
       const productResponse = await fetch(
-        `http://localhost:8000/products/${item.product}`,
+        `${BASE_URL}/products/${item.product}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -132,7 +134,7 @@ async function updateQuantity(cartItemId, newQuantity) {
       return;
     }
 
-    const response = await fetch(`http://localhost:8000/cart/${cartItemId}`, {
+    const response = await fetch(`${BASE_URL}/cart/${cartItemId}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -149,6 +151,7 @@ async function updateQuantity(cartItemId, newQuantity) {
     alert("فيه مشكلة في تحديث الكمية، حاول تاني!");
   }
 }
+window.updateQuantity = updateQuantity;
 
 async function removeFromCart(cartItemId) {
   try {
@@ -158,7 +161,7 @@ async function removeFromCart(cartItemId) {
       return;
     }
 
-    const response = await fetch(`http://localhost:8000/cart/${cartItemId}`, {
+    const response = await fetch(`${BASE_URL}/cart/${cartItemId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -175,6 +178,8 @@ async function removeFromCart(cartItemId) {
     alert("فيه مشكلة في الحذف، حاول تاني!");
   }
 }
+
+window.removeFromCart = removeFromCart;
 
 function updateCartCount(cartItems = []) {
   const totalCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
