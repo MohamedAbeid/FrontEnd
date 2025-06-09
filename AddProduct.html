@@ -163,11 +163,16 @@
               </div>
               
               <div class="boxs">
-                <div class="box">
-                  <label for="colors">Choose Colors</label>
-                  <div id="colorOptions" class="color-options"></div>
-                </div>
-              </div>
+  <div class="box">
+    <label for="customColor">Choose Colors</label>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <input type="color" id="customColor" />
+      <button type="button" id="addColorBtn">Add</button>
+    </div>
+    <div id="selectedColorsContainer" class="color-options"></div>
+  </div>
+</div>
+
               
               
               <div class="button">

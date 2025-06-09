@@ -145,6 +145,39 @@ nav ul .red {
   border-color: #000;
   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;
 }
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.color-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid #ccc;
+  cursor: pointer;
+}
+
+.color-circle::after {
+  content: "✕";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #db4444;
+  color: white;
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 18px;
+  cursor: pointer;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .first {

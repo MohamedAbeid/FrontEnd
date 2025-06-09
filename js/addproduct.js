@@ -1,14 +1,4 @@
 import { BASE_URL } from "./base_url.js";
-
-const token = localStorage.getItem("token");
-const userRole = localStorage.getItem("role"); // admin or manager
-
-if (!token || (userRole !== "admin" && userRole !== "manager")) {
-  alert("Access Denied. You must be admin or manager.");
-  document.getElementById("addProductForm").style.display = "none";
-  throw new Error("Unauthorized access");
-}
-
 // Load categories
 fetch(`${BASE_URL}/categories`)
   .then((res) => res.json())
@@ -26,43 +16,63 @@ fetch(`${BASE_URL}/categories`)
     console.error("Error fetching categories:", err);
   });
 
-// Render color options
-const colorList = [
-  { name: "Red", value: "red" },
-  { name: "Blue", value: "blue" },
-  { name: "Green", value: "green" },
-  { name: "Black", value: "black" },
-  { name: "White", value: "white" },
-  { name: "Yellow", value: "yellow" },
-  { name: "Purple", value: "purple" },
-  { name: "Orange", value: "orange" },
-  { name: "Gray", value: "gray" },
-  { name: "Brown", value: "brown" },
-];
-const colorOptionsContainer = document.getElementById("colorOptions");
-const selectedColors = new Set();
+// جلب التوكن والـ role من التخزين المحلي
+const token = localStorage.getItem("token");
+const userRole = localStorage.getItem("role"); // admin or manager
 
-colorList.forEach((color) => {
-  const div = document.createElement("div");
-  div.classList.add("color-circle");
-  div.style.backgroundColor = color.value;
-  div.setAttribute("title", color.name);
-  div.setAttribute("data-color", color.value);
+// تحقق من صلاحية الدخول
+if (!token || (userRole !== "admin" && userRole !== "manager")) {
+  alert("Access Denied. You must be admin or manager.");
+  document.getElementById("addProductForm").style.display = "none";
+  throw new Error("Unauthorized access");
+}
 
-  div.addEventListener("click", () => {
-    if (div.classList.contains("selected")) {
-      div.classList.remove("selected");
-      selectedColors.delete(color.value);
-    } else {
-      div.classList.add("selected");
-      selectedColors.add(color.value);
-    }
+// تحميل قائمة التصنيفات
+fetch(`${BASE_URL}/categories`)
+  .then((res) => res.json())
+  .then((result) => {
+    const categories = result.data || [];
+    const categorySelect = document.getElementById("category");
+    categories.forEach((cat) => {
+      const option = document.createElement("option");
+      option.value = cat._id || cat.id || cat.name;
+      option.textContent = cat.name;
+      categorySelect.appendChild(option);
+    });
+  })
+  .catch((err) => {
+    console.error("Error fetching categories:", err);
   });
 
-  colorOptionsContainer.appendChild(div);
+// 🎨 نظام إضافة الألوان باستخدام input type="color"
+const selectedColors = new Set();
+const addColorBtn = document.getElementById("addColorBtn");
+const colorInput = document.getElementById("customColor");
+const selectedColorsContainer = document.getElementById(
+  "selectedColorsContainer"
+);
+
+addColorBtn.addEventListener("click", () => {
+  const color = colorInput.value;
+
+  if (!selectedColors.has(color)) {
+    selectedColors.add(color);
+
+    const colorCircle = document.createElement("div");
+    colorCircle.className = "color-circle";
+    colorCircle.style.backgroundColor = color;
+    colorCircle.setAttribute("data-color", color);
+
+    colorCircle.addEventListener("click", () => {
+      selectedColors.delete(color);
+      selectedColorsContainer.removeChild(colorCircle);
+    });
+
+    selectedColorsContainer.appendChild(colorCircle);
+  }
 });
 
-// Submit form
+// 📝 حدث إرسال الفورم
 document
   .getElementById("addProductForm")
   .addEventListener("submit", function (e) {
@@ -91,6 +101,7 @@ document
       formData.append("images", images[i]);
     }
 
+    // إرسال الألوان المختارة
     selectedColors.forEach((color) => {
       formData.append("colors[]", color);
     });
@@ -109,5 +120,6 @@ document
       })
       .catch((err) => {
         console.error("Error adding product:", err);
+        alert("Error adding product");
       });
   });
