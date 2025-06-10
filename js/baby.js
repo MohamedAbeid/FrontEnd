@@ -1,13 +1,13 @@
 import { BASE_URL } from "./base_url.js";
 
-const categoryName = "Baby's &Toys";
+const categoryName = "Baby";
 
 const token = localStorage.getItem("token");
 document.querySelector(".left h2").textContent = categoryName;
 
 async function fetchProductsByCategory() {
   try {
-    const response = await fetch(`${BASE_URL}/products`, {
+    const response = await fetch(`${BASE_URL}/products?limit=1000`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -17,9 +17,11 @@ async function fetchProductsByCategory() {
     const allProducts = result.data || [];
 
     // فلترة حسب اسم الفئة
-    const filteredProducts = allProducts.filter(
-      (product) => product.category && product.category.name === categoryName
-    );
+    const filteredProducts = allProducts.filter((product) => {
+      const productCat = product.category?.name?.toLowerCase().trim();
+      const targetCat = categoryName.toLowerCase().trim();
+      return productCat === targetCat;
+    });
 
     const container = document.getElementById("productsContainer");
     container.innerHTML = "";
@@ -77,6 +79,9 @@ async function fetchProductsByCategory() {
         `;
 
       container.appendChild(box);
+      allProducts
+        .filter((p) => p.category?.name !== "Baby")
+        .forEach((p) => console.log(`❌ ${p.title} → ${p.category?.name}`));
     });
   } catch (error) {
     console.error("❌ Error fetching products:", error);
@@ -86,36 +91,36 @@ async function fetchProductsByCategory() {
 }
 
 fetchProductsByCategory();
-let searchTimeout; // لتأخير البحث بعد التوقف عن الكتابة (debounce)
+// let searchTimeout; // لتأخير البحث بعد التوقف عن الكتابة (debounce)
 
-function searchProducts() {
-  clearTimeout(searchTimeout); // إلغاء أي بحث سابق قبل البدء
+// function searchProducts() {
+//   clearTimeout(searchTimeout); // إلغاء أي بحث سابق قبل البدء
 
-  searchTimeout = setTimeout(() => {
-    const keyword = document.getElementById("searchInput").value.trim();
-    const url = `${BASE_URL}/products?keyword=${encodeURIComponent(keyword)}`;
+//   searchTimeout = setTimeout(() => {
+//     const keyword = document.getElementById("searchInput").value.trim();
+//     const url = `${BASE_URL}/products?keyword=${encodeURIComponent(keyword)}`;
 
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        const resultsDiv = document.getElementsByClassName("scroll");
-        resultsDiv.innerHTML = ""; // تفريغ النتائج السابقة
+//     fetch(url)
+//       .then((response) => response.json())
+//       .then((data) => {
+//         const resultsDiv = document.getElementsByClassName("scroll");
+//         resultsDiv.innerHTML = ""; // تفريغ النتائج السابقة
 
-        if (data.length === 0) {
-          resultsDiv.innerHTML = "<p>لا توجد نتائج.</p>";
-          return;
-        }
+//         if (data.length === 0) {
+//           resultsDiv.innerHTML = "<p>لا توجد نتائج.</p>";
+//           return;
+//         }
 
-        data.forEach((product) => {
-          const item = document.createElement("div");
-          item.textContent = product.name; // أو أي تفاصيل تحب تعرضها
-          resultsDiv.appendChild(item);
-        });
-      })
-      .catch((error) => {
-        console.error("حدث خطأ أثناء جلب المنتجات:", error);
-      });
-  }, 300); // تأخير التنفيذ 300ms بعد التوقف عن الكتابة
-}
+//         data.forEach((product) => {
+//           const item = document.createElement("div");
+//           item.textContent = product.name; // أو أي تفاصيل تحب تعرضها
+//           resultsDiv.appendChild(item);
+//         });
+//       })
+//       .catch((error) => {
+//         console.error("حدث خطأ أثناء جلب المنتجات:", error);
+//       });
+//   }, 300); // تأخير التنفيذ 300ms بعد التوقف عن الكتابة
+// }
 
-window.searchProducts = searchProducts;
+// window.searchProducts = searchProducts;

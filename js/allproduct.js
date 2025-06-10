@@ -2,7 +2,7 @@ import { BASE_URL } from "./base_url.js";
 
 const token = localStorage.getItem("token");
 
-fetch(`${BASE_URL}/products`, {
+fetch(`${BASE_URL}/products?limit=1000`, {
   headers: {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,

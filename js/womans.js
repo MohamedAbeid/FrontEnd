@@ -6,7 +6,7 @@ const token = localStorage.getItem("token");
 
 async function fetchProductsByCategory() {
   try {
-    const response = await fetch(`${BASE_URL}/products`, {
+    const response = await fetch(`${BASE_URL}/products?limit=1000`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
