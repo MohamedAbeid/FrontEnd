@@ -21,14 +21,6 @@ document.querySelectorAll(".pic").forEach((img) => {
   });
 });
 
-// ربط الألوان بالصور المناسبة
-const colorImages = {
-  red: "../Images/home/keyboard/1.png",
-  "light-brown": "../Images/home/keyboard/5.png",
-  white: "../Images/home/keyboard/4.png",
-  Black: "../Images/home/keyboard/3.png",
-};
-
 document.querySelectorAll(".color-box").forEach((box) => {
   box.addEventListener("click", function () {
     const selectedColor = this.getAttribute("data-color");
@@ -37,6 +29,48 @@ document.querySelectorAll(".color-box").forEach((box) => {
     }
   });
 });
+
+document
+  .querySelector(".color-options")
+  .addEventListener("click", function (e) {
+    if (e.target.classList.contains("color-box")) {
+      // إزالة التحديد من جميع العناصر داخل color-options
+      document
+        .querySelectorAll(".color-box")
+        .forEach((b) => b.classList.remove("selected"));
+
+      // إضافة التحديد للعنصر الذي تم الضغط عليه
+      e.target.classList.add("selected");
+    }
+  });
+
+// عند اختيار سايز
+document
+  .getElementById("sizeContainer")
+  .addEventListener("click", function (e) {
+    if (e.target.classList.contains("size-box")) {
+      // إزالة التحديد من جميع العناصر
+      document
+        .querySelectorAll(".size-box")
+        .forEach((b) => b.classList.remove("selected"));
+
+      // إضافة التحديد للعنصر الذي تم الضغط عليه
+      e.target.classList.add("selected");
+    }
+  });
+
+// التحكم في عداد المنتج
+document.getElementById("increase").onclick = function () {
+  const input = document.getElementById("quantity");
+  input.value = parseInt(input.value) + 1;
+};
+
+document.getElementById("decrease").onclick = function () {
+  const input = document.getElementById("quantity");
+  if (parseInt(input.value) > 1) {
+    input.value = parseInt(input.value) - 1;
+  }
+};
 
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get("id");
@@ -47,6 +81,7 @@ if (productId) {
     .then((data) => {
       const product = data.data;
 
+      document.querySelector("head title").textContent = `${product.title}`;
       // اسم المنتج
       document.querySelector(".d3 h2").textContent = `${product.title}`;
 
@@ -54,7 +89,7 @@ if (productId) {
       document.querySelector(".d3 h3 del").textContent = `$${product.price}`;
       if (product.priceAfterDiscount) {
         document.querySelector(
-          ".d3 h3 mark"
+          ".d3 h3 span"
         ).textContent = `$${product.priceAfterDiscount}`;
       } else {
         document.querySelector(".d3 h3 del").style.display = "none";
@@ -71,7 +106,6 @@ if (productId) {
       availabilityElement.innerHTML = `<b><p style="color: #db4444">Quantity : ${
         product.quantity > 0 ? product.quantity : "Out of Stock"
       }</p></b>`;
-
       // صور المنتج
       const imageContainer = document.getElementById("thumbnailImages");
       imageContainer.innerHTML = "";
@@ -99,6 +133,30 @@ if (productId) {
         box.style.backgroundColor = color;
         box.setAttribute("data-color", color);
         colorContainer.appendChild(box);
+      });
+      // الأحجام المتوفرة
+      const sizeWrapper = document.getElementById("sizeWrapper");
+      const sizeContainer = document.getElementById("sizeContainer");
+
+      // التحقق من وجود أحجام
+      if (product.size && product.size.length > 0) {
+        sizeContainer.innerHTML = "";
+        product.size.forEach((size) => {
+          const sizeBox = document.createElement("span");
+          sizeBox.className = "size-box";
+          sizeBox.textContent = size;
+          sizeContainer.appendChild(sizeBox);
+        });
+        sizeWrapper.style.display = "block";
+      } else {
+        // إخفاء القسم كله إذا لم توجد أحجام
+        sizeWrapper.style.display = "none";
+      }
+      sizeBox.addEventListener("click", () => {
+        document
+          .querySelectorAll(".size-box")
+          .forEach((el) => el.classList.remove("selected"));
+        sizeBox.classList.add("selected");
       });
     })
     .catch((err) => {

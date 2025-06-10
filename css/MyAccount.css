@@ -73,6 +73,7 @@ nav ul .red {
 .my .con .right .boxs .box input[type="email"],
 .my .con .right .boxs .box textarea,
 .my .con .right .boxs .box #category,
+.my .con .right .boxs .box #sizes,
 .my .con .right input[type="password"] {
   padding: 10px 80px 10px 20px;
   border: 1px solid #00000057;

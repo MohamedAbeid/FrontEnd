@@ -75,6 +75,61 @@
       margin-left: 5px;
       cursor: pointer;
     }
+    .color-box.selected {
+  border: 4px solid #111; /* أسود غامق وحد عريض */
+}
+    .size-options {
+  margin-top: 15px;
+}
+
+.size-box {
+  display: inline-block;
+    width: 15px;
+    text-align: center;
+    padding: 6px 10px;
+    margin: 5px 5px 0 0;
+    border: 1px solid #999;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.size-box.selected {
+  background-color: #db4444;
+    color: white;
+    border: none;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.quantity-control button {
+  width: 35px;
+    text-align: center;
+    font-size: 25px;
+    padding: 4px;
+    cursor: pointer;
+    background-color: #db4444;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.quantity-control input {
+  width: 40px;
+  text-align: center;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.rating-display {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
   </style>
 </head>
 
@@ -164,18 +219,30 @@
         <div class="d3">
           <h2 class="title">
           </h2>
-          <p>
+
+           <p>
             in Stock
           </p>
-          <h3><mark>$960.00</mark> <del>$1160</del></h3>
+          <h3><span>$960.00</span> <del>$1160</del></h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
             deserunt repudiandae doloribus necessitatibus
           </p>
           <hr />
+          
           <p>Colours:</p>
           <div class="color-options">
           </div>
+          <div class="size-options" id="sizeWrapper">
+  <label>Sizes:</label>
+  <div id="sizeContainer"></div>
+</div>
+  <div class="quantity-control">
+  <button id="decrease">-</button>
+  <input type="text" id="quantity" value="1" />
+  <button id="increase">+</button>
+</div>
+
           <div class="inp">
             <a href="#" class="add_cart" onclick="addToCart('${product._id}')" style="
             width: 75px;
@@ -201,8 +268,8 @@
                 <img src="Images/Icon-return.svg" alt="">
               </div>
               <div class="right">
-                <p>Free Delivery</p>
-                <p>Enter your postal code for Delivery Availability</p>
+                <p>Return Delivery</p>
+                <p>Free 30 Days Delivery Returns. Details</p>
               </div>
             </div>
           </div>

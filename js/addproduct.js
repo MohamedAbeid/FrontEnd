@@ -27,23 +27,6 @@ if (!token || (userRole !== "admin" && userRole !== "manager")) {
   throw new Error("Unauthorized access");
 }
 
-// تحميل قائمة التصنيفات
-fetch(`${BASE_URL}/categories`)
-  .then((res) => res.json())
-  .then((result) => {
-    const categories = result.data || [];
-    const categorySelect = document.getElementById("category");
-    categories.forEach((cat) => {
-      const option = document.createElement("option");
-      option.value = cat._id || cat.id || cat.name;
-      option.textContent = cat.name;
-      categorySelect.appendChild(option);
-    });
-  })
-  .catch((err) => {
-    console.error("Error fetching categories:", err);
-  });
-
 // 🎨 نظام إضافة الألوان باستخدام input type="color"
 const selectedColors = new Set();
 const addColorBtn = document.getElementById("addColorBtn");
@@ -104,6 +87,15 @@ document
     // إرسال الألوان المختارة
     selectedColors.forEach((color) => {
       formData.append("colors[]", color);
+    });
+
+    // إضافة الأحجام المختارة
+    const sizesSelect = document.getElementById("sizes");
+    const selectedSizes = Array.from(sizesSelect.selectedOptions).map(
+      (option) => option.value
+    );
+    selectedSizes.forEach((size) => {
+      formData.append("size", size); // تكرار نفس المفتاح "size" للـ array
     });
 
     fetch(`${BASE_URL}/products`, {
