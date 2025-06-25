@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", function () {
           <li><a href="./MyAccount.html">My profile</a></li>
           <li><a href="./MyAddress.html">My Address</a></li>
           <li><a href="./MyAccount.html">My Wishlist</a></li>
-          <li><a href="./MyAccount.html">My Order</a></li>
+          <li><a href="./Myorder.html">My Order</a></li>
         `;
     }
   } else {

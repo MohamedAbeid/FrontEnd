@@ -1,6 +1,19 @@
 import { BASE_URL } from "./base_url.js";
 
-async function addToCart(productId) {
+let selectedSize = null;
+
+document.querySelectorAll(".size-box").forEach((box) => {
+  box.addEventListener("click", () => {
+    document
+      .querySelectorAll(".size-box")
+      .forEach((b) => b.classList.remove("selected"));
+    box.classList.add("selected");
+    selectedSize = box.dataset.size;
+    console.log("Selected Size:", selectedSize);
+  });
+});
+
+async function addToCart(productId, color) {
   try {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -8,13 +21,20 @@ async function addToCart(productId) {
       return;
     }
 
+    const body = { productId, color };
+    if (selectedSize) {
+      body.size = selectedSize;
+    }
+
+    console.log("القيم المرسلة:", body);
+
     const response = await fetch(`${BASE_URL}/cart`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ productId }),
+      body: JSON.stringify(body),
     });
 
     if (!response.ok) throw new Error("فيه مشكلة في الاتصال بالـ API");
@@ -22,7 +42,7 @@ async function addToCart(productId) {
     const data = await response.json();
     console.log("تمت الإضافة بنجاح:", data);
     alert("تم إضافة المنتج للسلة بنجاح!");
-    fetchCart(); // نحدث الكارت بعد الإضافة
+    fetchCart();
   } catch (error) {
     console.error("حصل خطأ:", error);
     alert("فيه مشكلة، حاول تاني!");
@@ -30,6 +50,10 @@ async function addToCart(productId) {
 }
 
 window.addToCart = addToCart;
+
+//////////////
+
+let appliedCoupon = null; // لازم تعريفه فوق في النطاق العام
 
 async function fetchCart() {
   try {
@@ -50,30 +74,33 @@ async function fetchCart() {
     if (!response.ok) throw new Error("فيه مشكلة في جلب بيانات السلة");
 
     const result = await response.json();
-    console.log("Cart Response:", result);
     const cartItems = result.data.cartItems;
     const cartId = result.data._id;
     localStorage.setItem("cartId", cartId);
 
-    // جلب تفاصيل كل منتج
     for (let item of cartItems) {
-      const productResponse = await fetch(
-        `${BASE_URL}/products/${item.product}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
+      try {
+        const productResponse = await fetch(
+          `${BASE_URL}/products/${item.product}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
 
-      if (productResponse.ok) {
-        const productData = await productResponse.json();
-        const product = productData.data;
-        item.name = product.title || "غير معروف";
-        item.image = product.imageCover || "Images/default.png";
-        item.priceAfterDiscount =
-          product.priceAfterDiscount !== undefined
-            ? product.priceAfterDiscount
-            : product.price; // ✅ هنا التعديل فقط
-      } else {
+        if (productResponse.ok) {
+          const productData = await productResponse.json();
+          const product = productData.data;
+          item.name = product.title || "غير معروف";
+          item.image = product.imageCover || "Images/default.png";
+          item.priceAfterDiscount =
+            product.priceAfterDiscount !== undefined
+              ? product.priceAfterDiscount
+              : product.price;
+        } else {
+          throw new Error("منتج غير موجود");
+        }
+      } catch (err) {
+        console.warn(`مشاكل في منتج ${item.product}:`, err);
         item.name = "منتج غير موجود";
         item.image = "Images/default.png";
         item.priceAfterDiscount = item.price;
@@ -88,6 +115,8 @@ async function fetchCart() {
   }
 }
 
+//////////////////////
+
 function displayCart(cartItems) {
   const cartBody = document.getElementById("cart-body");
   if (!cartBody) return;
@@ -99,32 +128,60 @@ function displayCart(cartItems) {
     const subtotal = item.priceAfterDiscount * item.quantity;
     total += subtotal;
 
+    const sizeDisplay = item.size ? `<div>Size: ${item.size}</div>` : "";
+
+    const colorDisplay = `
+      <div style="display: flex; align-items: center; gap: 5px;">
+        <span>Color:</span>
+        <div style="width: 15px; height: 15px; background-color: ${item.color}; border: 1px solid #000; border-radius: 50%;"></div>
+      </div>
+    `;
+
     const row = document.createElement("tr");
     row.innerHTML = `
-        <td class="product">
-          <img src="${item.image}" alt="${
+      <td class="product">
+        <img src="${item.image}" alt="${
       item.name
     }" style="width: 50px; height: 50px;">
+        <div>
           <span>${item.name}</span>
-        </td>
-        <td>$${item.priceAfterDiscount.toFixed(2)}</td>
-        <td>
-          <input type="number" value="${item.quantity}" min="1"
-            onchange="updateQuantity('${item._id}', this.value)">
-        </td>
-        <td>$${subtotal.toFixed(2)}</td>
-        <td>
-          <button onclick="removeFromCart('${item._id}')">🗑️</button>
-        </td>
-      `;
+          ${colorDisplay}
+          ${sizeDisplay}
+        </div>
+      </td>
+      <td>$${item.priceAfterDiscount.toFixed(2)}</td>
+      <td>
+        <input type="number" value="${item.quantity}" min="1"
+          onchange="updateQuantity('${item._id}', this.value)">
+      </td>
+      <td>$${subtotal.toFixed(2)}</td>
+      <td>
+        <button style="background-color: #db4444; color: #ffffff; padding: 14px; border-radius: 10px; border: none; cursor: pointer;" onclick="removeFromCart('${
+          item._id
+        }')">Delete</button>
+      </td>
+    `;
     cartBody.appendChild(row);
   });
 
   const totalElement = document.querySelector(".cart-total span");
+  const priceAfterDiscountElement =
+    document.getElementById("priceAfterDiscount");
+
   if (totalElement) {
     totalElement.textContent = `$${total.toFixed(2)}`;
   }
+
+  // حساب السعر بعد الخصم
+  if (appliedCoupon && priceAfterDiscountElement) {
+    const discountedTotal = total - (total * appliedCoupon.discount) / 100;
+    priceAfterDiscountElement.textContent = `$${discountedTotal.toFixed(2)}`;
+  } else if (priceAfterDiscountElement) {
+    priceAfterDiscountElement.textContent = `$${total.toFixed(2)}`;
+  }
 }
+
+////////////////////////////
 
 async function updateQuantity(cartItemId, newQuantity) {
   try {

@@ -101,15 +101,36 @@
         </div>
         <div class="con">
           <nav class="left_side">
-            <ul></ul>
+            <ul>
+              <li>
+                <a href="./category.html">Category</a>
+              </li>
+              <li>
+                <a href="./copon.html" class="red">Coupon</a>
+              </li>
+              <li>
+                <a href="./Product.html">Product</a>
+              </li>
+              <li>
+                <a href="#">My Order</a>
+              </li>
+            </ul>
           </nav>
           <div class="right">
             <h4>Add Coupon</h4>
             <form id="info-form">
               <div class="boxs">
                 <div class="box">
-                  <label for="la">Copon</label>
-                  <input type="text" id="name" />
+                  <label for="la">Name</label>
+                  <input type="text" id="coupon" />
+                </div>
+                <div class="box">
+                  <label for="la">Expire</label>
+                  <input type="date" id="expire" />
+                </div>
+                <div class="box">
+                  <label for="la">Discount</label>
+                  <input type="text" id="discount" />
                 </div>
               </div>
               <div class="button">
@@ -197,9 +218,20 @@
       </div>
     </div>
     <!-- End Footer -->
-    <script src="./index.js"></script>
-    <script src="./conAPI/loginAndAccount.js"></script>
-    <script src="./conAPI/logout.js"></script>
-    <script src="./conAPI/admin_user.js"></script>
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/home.js"></script>
+    <script type="module" src="./js/loginAndAccount.js"></script>
+    <script type="module" src="./js/admin_user.js"></script>
+    <script type="module" src="./js/logout.js"></script>
+    <script type="module" src="./js/cart.js"></script>
+    <script type="module" src="./js/addcategory.js"></script>
+    <script type="module" src="./js/coupon.js"></script>
+    <script type="module" src="./js/address.js"></script>
+    <script type="module" src="./js/login.js"></script>
+    <script type="module" src="./js/logout.js"></script>
+    <script type="module" src="./js/myaccount.js"></script>
+    <script type="module" src="./js/productde.js"></script>
+    <script type="module" src="./js/signup.js"></script>
+    <script type="module" src="./js/addcoupon.js"></script>
   </body>
 </html>

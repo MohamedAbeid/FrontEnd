@@ -165,3 +165,100 @@ if (productId) {
 } else {
   document.querySelector(".d3 h2").textContent = "Product ID not found in URL.";
 }
+
+///////////////////////////////////////
+
+document.getElementById("addToCartBtn").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const selectedColorBox = document.querySelector(".color-box.selected");
+  if (!selectedColorBox) {
+    alert("من فضلك اختر اللون أولاً");
+    return;
+  }
+  const selectedColor = selectedColorBox.getAttribute("data-color");
+
+  const selectedSizeBox = document.querySelector(".size-box.selected");
+  let selectedSize = null;
+
+  const sizeContainer = document.getElementById("sizeContainer");
+  if (sizeContainer && sizeContainer.children.length > 0) {
+    if (!selectedSizeBox) {
+      alert("من فضلك اختر المقاس أولاً");
+      return;
+    }
+    selectedSize = selectedSizeBox.textContent;
+  }
+
+  const quantity = parseInt(document.getElementById("quantity").value);
+  if (isNaN(quantity) || quantity <= 0) {
+    alert("حدد كمية صحيحة");
+    return;
+  }
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    alert("لازم تسجل دخول الأول!");
+    return;
+  }
+
+  const body = {
+    productId: productId,
+    color: selectedColor,
+    size: selectedSize,
+  };
+
+  fetch(`${BASE_URL}/cart`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(body),
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error("فشل إضافة المنتج للسلة");
+      return res.json();
+    })
+    .then(() => {
+      return fetch(`${BASE_URL}/cart`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    })
+    .then((res) => res.json())
+    .then((data) => {
+      const cartItem = data.data.cartItems.find(
+        (item) => item.product === productId && item.color === selectedColor
+      );
+
+      if (!cartItem) {
+        throw new Error("لم يتم العثور على المنتج في السلة");
+      }
+
+      return fetch(`${BASE_URL}/cart/${cartItem._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          quantity: quantity,
+        }),
+      });
+    })
+    .then((res) => {
+      if (!res.ok) throw new Error("فشل تحديث الكمية");
+      return res.json();
+    })
+    .then(() => {
+      alert("تم إضافة المنتج وتحديث الكمية بنجاح!");
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("حصلت مشكلة، حاول تاني!");
+    });
+});

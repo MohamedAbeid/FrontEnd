@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="css/cart.css" />
+    <title>MyAccount</title>
+    <link rel="stylesheet" href="css/MyAccount.css" />
+    <!-- Style CSS  -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,6 +15,20 @@
       rel="stylesheet"
     />
     <link rel="icon" href="Images/shop-bag-svgrepo-com.svg" />
+    <style>
+      .right {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .my .con {
+        display: flex;
+        gap: 70px;
+        margin: 60px 0;
+        align-items: center;
+        justify-content: flex-start;
+      }
+    </style>
   </head>
   <body>
     <div class="header">
@@ -53,16 +68,9 @@
               </ul>
             </div>
             <div class="search">
-              <div class="sea">
-                <input
-                  type="search"
-                  name=""
-                  id=""
-                  placeholder="What are you looking for?"
-                />
-                <img src="Images/Component 2.svg" alt="" />
-              </div>
-              <a href="#"><img src="Images/Vector.svg" alt="" /></a>
+              <a href="favorites.html">
+                <img src="Images/Vector.svg" alt="" />
+              </a>
               <a href="cart.html" class="cart-icon">
                 <img src="Images/Cart1.svg" alt="" />
                 <span class="cart-count">0</span>
@@ -72,7 +80,9 @@
                 <ul>
                   <li>
                     <img src="Images/user.svg" alt="" />
-                    <a href="MyAccount.html">Manage My Account</a>
+                    <a href="MyAccount.html" class="active"
+                      >Manage My Account</a
+                    >
                   </li>
                   <li>
                     <img src="Images/icon-mallbag.svg" alt="" />
@@ -86,7 +96,7 @@
                     <img src="Images/Icon-Reviews.svg" alt="" />
                     <a href="#">My Reviews</a>
                   </li>
-                  <li>
+                  <li id="logoutBtn">
                     <img src="Images/Icon-logout.svg" alt="" />
                     <a href="#">Logout</a>
                   </li>
@@ -98,45 +108,20 @@
         <!-- End Nav Bar -->
       </div>
     </div>
-    <main>
-      <section class="cart-container">
-        <div class="container">
-          <h2>Cart</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
-            <tbody id="cart-body"></tbody>
-          </table>
-          <div class="cart-actions">
-            <a href="Wishlist.html" class="button">Return To Shop</a>
-            <a href="#" class="button">Update Cart</a>
-          </div>
-          <div class="coupon-section">
-            <div class="box">
-              <input
-                type="text"
-                placeholder="Coupon Code"
-                class="coupon-input"
-              />
-              <a href="#" class="button" id="applyCouponBtn">Apply Coupon</a>
-            </div>
-            <div class="cart-total">
-              <h3>Cart Total</h3>
-              <p>Total: <span id="totalPrice">$1750</span></p>
-              <hr />
-              <a href="checkout.html" class="button">Proceed to Checkout</a>
-            </div>
-          </div>
+    <div class="my">
+      <div class="container">
+        <div class="first">
+          <h1>Welcome <span class="m" id="user-name">!</span></h1>
         </div>
-      </section>
-    </main>
+        <div class="con">
+          <nav class="left_side">
+            <ul></ul>
+          </nav>
+          <div class="right"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Start Footer -->
     <!-- Start Footer -->
     <div class="footer">
       <div class="container">
@@ -226,5 +211,6 @@
     <script type="module" src="./js/myaccount.js"></script>
     <script type="module" src="./js/productde.js"></script>
     <script type="module" src="./js/signup.js"></script>
+    <script type="module" src="./js/myorder.js"></script>
   </body>
 </html>

@@ -19,43 +19,38 @@ async function loadDiscountedProducts() {
 
       if (discount > 30) {
         const boxHTML = `
-                <div class="box" data-id="${product._id}">
-                  <div class="photo">
-                    <button onclick="location.href='productdes.html?id=${
-                      product._id
-                    }'">
-                      <img src="${product.imageCover}" alt="${
-          product.title
-        }" width="190px" />
-                      ${
-                        oldPrice !== newPrice
-                          ? `<span class="dis">-${Math.round(discount)}%</span>`
-                          : ""
-                      }
-                      <span class="fev" data-product-id="product${index}">
-                        <i class="fa-regular fa-heart" id="heart-product${index}"></i>
-                      </span>
-                    </button>
-                    <a href="#" class="add_cart" onclick="addToCart('${
-                      product._id
-                    }')">Add To Cart</a>
-                  </div>
-                  <div class="text">
-                    <h3>${product.title}</h3>
-                    <div class="salary">
-                      <span>$${newPrice}</span>
-                      ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
-                    </div>
-                    <div class="star">
-                      <img src="Images/Star.svg" alt="star" />
-                      <img src="Images/Star.svg" alt="star" />
-                      <img src="Images/Star.svg" alt="star" />
-                      <img src="Images/Star.svg" alt="star" />
-                      <img src="Images/Star.svg" alt="star" />
-                    </div>
-                  </div>
-                </div>
-              `;
+  <div class="box" data-id="${product._id}">
+    <div class="photo">
+        <img src="${product.imageCover}" alt="${product.title}" width="190px" />
+        ${
+          oldPrice !== newPrice
+            ? `<span class="dis">-${Math.round(discount)}%</span>`
+            : ""
+        }
+        <span class="fev" data-product-id="product${index}">
+          <i class="fa-regular fa-heart" id="heart-product${index}"></i>
+        </span>
+      <a href="productdes.html?id=${
+        product._id
+      }" class="add_cart">View Details</a>
+    </div>
+    <div class="text">
+      <h3>${product.title}</h3>
+      <div class="salary">
+        <span>$${newPrice}</span>
+        ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
+      </div>
+      
+      <div class="star">
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+      </div>
+    </div>
+  </div>
+`;
 
         scrollContainer.innerHTML += boxHTML;
       }
@@ -91,41 +86,36 @@ async function loadLatestProducts() {
 
       const boxHTML = `
               <div class="box" data-id="${product._id}">
-                <div class="photo">
-                  <button onclick="location.href='productdes.html?id=${
-                    product._id
-                  }'">
-                    <img src="${product.imageCover}" alt="${
-        product.title
-      }" width="190px" />
-                    ${
-                      oldPrice !== newPrice
-                        ? `<span class="dis">-${Math.round(discount)}%</span>`
-                        : ""
-                    }
-                    <span class="fev" data-product-id="product${index}">
-                      <i class="fa-regular fa-heart" id="heart-product${index}"></i>
-                    </span>
-                  </button>
-                  <a href="#" class="add_cart" onclick="addToCart('${
-                    product._id
-                  }')">Add To Cart</a>
-                </div>
-                <div class="text">
-                  <h3>${product.title}</h3>
-                  <div class="salary">
-                    <span>$${newPrice}</span>
-                    ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
-                  </div>
-                  <div class="star">
-                    <img src="Images/Star.svg" alt="star" />
-                    <img src="Images/Star.svg" alt="star" />
-                    <img src="Images/Star.svg" alt="star" />
-                    <img src="Images/Star.svg" alt="star" />
-                    <img src="Images/Star.svg" alt="star" />
-                  </div>
-                </div>
-              </div>
+    <div class="photo">
+        <img src="${product.imageCover}" alt="${product.title}" width="190px" />
+        ${
+          oldPrice !== newPrice
+            ? `<span class="dis">-${Math.round(discount)}%</span>`
+            : ""
+        }
+        <span class="fev" data-product-id="product${index}">
+          <i class="fa-regular fa-heart" id="heart-product${index}"></i>
+        </span>
+      <a href="productdes.html?id=${
+        product._id
+      }" class="add_cart">View Details</a>
+    </div>
+    <div class="text">
+      <h3>${product.title}</h3>
+      <div class="salary">
+        <span>$${newPrice}</span>
+        ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
+      </div>
+      
+      <div class="star">
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+      </div>
+    </div>
+  </div>
             `;
 
       scrollContainer.innerHTML += boxHTML;
@@ -159,41 +149,36 @@ async function loadRandomProducts() {
 
       const boxHTML = `
               <div class="box" data-id="${product._id}">
-                <div class="photo">
-                  <button onclick="location.href='productdes.html?id=${
-                    product._id
-                  }'">
-                    <img src="${product.imageCover}" alt="${
-        product.title
-      }" width="190px" />
-                    ${
-                      oldPrice !== newPrice
-                        ? `<span class="dis">-${Math.round(discount)}%</span>`
-                        : ""
-                    }
-                    <span class="fev" data-product-id="product${index}">
-                      <i class="fa-regular fa-heart" id="heart-product${index}"></i>
-                    </span>
-                  </button>
-                  <a href="#" class="add_cart" onclick="addToCart('${
-                    product._id
-                  }')">Add To Cart</a>
-                </div>
-                <div class="text">
-                  <h3>${product.title}</h3>
-                  <div class="salary">
-                    <span>$${newPrice}</span>
-                    ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
-                  </div>
-                  <div class="star">
-                    <img src="Images/Star.svg" alt="star" />
-                    <img src="Images/Star.svg" alt="star" />
-                    <img src="Images/Star.svg" alt="star" />
-                    <img src="Images/Star.svg" alt="star" />
-                    <img src="Images/Star.svg" alt="star" />
-                  </div>
-                </div>
-              </div>
+    <div class="photo">
+        <img src="${product.imageCover}" alt="${product.title}" width="190px" />
+        ${
+          oldPrice !== newPrice
+            ? `<span class="dis">-${Math.round(discount)}%</span>`
+            : ""
+        }
+        <span class="fev" data-product-id="product${index}">
+          <i class="fa-regular fa-heart" id="heart-product${index}"></i>
+        </span>
+      <a href="productdes.html?id=${
+        product._id
+      }" class="add_cart">View Details</a>
+    </div>
+    <div class="text">
+      <h3>${product.title}</h3>
+      <div class="salary">
+        <span>$${newPrice}</span>
+        ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
+      </div>
+      
+      <div class="star">
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+        <img src="Images/Star.svg" alt="star" />
+      </div>
+    </div>
+  </div>
             `;
 
       scrollContainer.innerHTML += boxHTML;
@@ -207,4 +192,4 @@ async function loadRandomProducts() {
 window.addEventListener("DOMContentLoaded", loadRandomProducts);
 
 // تحديث كل 10 دقايق تلقائيًا
-setInterval(loadRandomProducts, 10 * 60 * 1000); // 10 دقائق = 600000 ملي ثانية
+setInterval(loadRandomProducts, 1 * 60 * 1000); // 10 دقائق = 600000 ملي ثانية
