@@ -20,36 +20,36 @@ async function loadDiscountedProducts() {
       if (discount > 30) {
         const boxHTML = `
   <div class="box" data-id="${product._id}">
-    <div class="photo">
-        <img src="${product.imageCover}" alt="${product.title}" width="190px" />
-        ${
-          oldPrice !== newPrice
-            ? `<span class="dis">-${Math.round(discount)}%</span>`
-            : ""
-        }
-        <span class="fev" data-product-id="product${index}">
-          <i class="fa-regular fa-heart" id="heart-product${index}"></i>
-        </span>
-      <a href="productdes.html?id=${
-        product._id
-      }" class="add_cart">View Details</a>
+  <div class="photo">
+    <img src="${product.imageCover}" alt="${product.title}" width="190px" />
+    ${
+      oldPrice !== newPrice
+        ? `<span class="dis">-${Math.round(discount)}%</span>`
+        : ""
+    }
+    <span class="fev" data-product-id="product${index}">
+        <i class="fa-regular fa-heart" data-product-id="${product._id}"></i>
+    </span>
+    <a href="productdes.html?id=${
+      product._id
+    }" class="add_cart">View Details</a>
+  </div>
+  <div class="text">
+    <h3>${product.title}</h3>
+    <div class="salary">
+      <span>$${newPrice}</span>
+      ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
     </div>
-    <div class="text">
-      <h3>${product.title}</h3>
-      <div class="salary">
-        <span>$${newPrice}</span>
-        ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
-      </div>
-      
-      <div class="star">
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-      </div>
+    <div class="star">
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
     </div>
   </div>
+</div>
+
 `;
 
         scrollContainer.innerHTML += boxHTML;
@@ -86,36 +86,36 @@ async function loadLatestProducts() {
 
       const boxHTML = `
               <div class="box" data-id="${product._id}">
-    <div class="photo">
-        <img src="${product.imageCover}" alt="${product.title}" width="190px" />
-        ${
-          oldPrice !== newPrice
-            ? `<span class="dis">-${Math.round(discount)}%</span>`
-            : ""
-        }
-        <span class="fev" data-product-id="product${index}">
-          <i class="fa-regular fa-heart" id="heart-product${index}"></i>
-        </span>
-      <a href="productdes.html?id=${
-        product._id
-      }" class="add_cart">View Details</a>
+  <div class="photo">
+    <img src="${product.imageCover}" alt="${product.title}" width="190px" />
+    ${
+      oldPrice !== newPrice
+        ? `<span class="dis">-${Math.round(discount)}%</span>`
+        : ""
+    }
+    <span class="fev" data-product-id="product${index}">
+        <i class="fa-regular fa-heart" data-product-id="${product._id}"></i>
+    </span>
+    <a href="productdes.html?id=${
+      product._id
+    }" class="add_cart">View Details</a>
+  </div>
+  <div class="text">
+    <h3>${product.title}</h3>
+    <div class="salary">
+      <span>$${newPrice}</span>
+      ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
     </div>
-    <div class="text">
-      <h3>${product.title}</h3>
-      <div class="salary">
-        <span>$${newPrice}</span>
-        ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
-      </div>
-      
-      <div class="star">
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-      </div>
+    <div class="star">
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
     </div>
   </div>
+</div>
+
             `;
 
       scrollContainer.innerHTML += boxHTML;
@@ -149,36 +149,36 @@ async function loadRandomProducts() {
 
       const boxHTML = `
               <div class="box" data-id="${product._id}">
-    <div class="photo">
-        <img src="${product.imageCover}" alt="${product.title}" width="190px" />
-        ${
-          oldPrice !== newPrice
-            ? `<span class="dis">-${Math.round(discount)}%</span>`
-            : ""
-        }
-        <span class="fev" data-product-id="product${index}">
-          <i class="fa-regular fa-heart" id="heart-product${index}"></i>
-        </span>
-      <a href="productdes.html?id=${
-        product._id
-      }" class="add_cart">View Details</a>
+  <div class="photo">
+    <img src="${product.imageCover}" alt="${product.title}" width="190px" />
+    ${
+      oldPrice !== newPrice
+        ? `<span class="dis">-${Math.round(discount)}%</span>`
+        : ""
+    }
+    <span class="fev" data-product-id="product${index}">
+        <i class="fa-regular fa-heart" data-product-id="${product._id}"></i>
+    </span>
+    <a href="productdes.html?id=${
+      product._id
+    }" class="add_cart">View Details</a>
+  </div>
+  <div class="text">
+    <h3>${product.title}</h3>
+    <div class="salary">
+      <span>$${newPrice}</span>
+      ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
     </div>
-    <div class="text">
-      <h3>${product.title}</h3>
-      <div class="salary">
-        <span>$${newPrice}</span>
-        ${oldPrice !== newPrice ? `<del>$${oldPrice}</del>` : ""}
-      </div>
-      
-      <div class="star">
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-        <img src="Images/Star.svg" alt="star" />
-      </div>
+    <div class="star">
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
+      <img src="Images/Star.svg" alt="star" />
     </div>
   </div>
+</div>
+
             `;
 
       scrollContainer.innerHTML += boxHTML;
@@ -193,3 +193,45 @@ window.addEventListener("DOMContentLoaded", loadRandomProducts);
 
 // تحديث كل 10 دقايق تلقائيًا
 setInterval(loadRandomProducts, 1 * 60 * 1000); // 10 دقائق = 600000 ملي ثانية
+
+///////////
+
+document.addEventListener("click", async function (e) {
+  const heartBtn = e.target.closest("i.fa-heart");
+
+  if (heartBtn) {
+    const productId = heartBtn.getAttribute("data-product-id");
+
+    if (!productId) return;
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("لازم تسجل دخول الأول!");
+      return;
+    }
+
+    try {
+      const res = await fetch(`${BASE_URL}/wishlist`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          productId: productId,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("تم إضافة المنتج إلى المفضلة ❤️");
+      } else {
+        alert(data.message || "حصل خطأ أثناء الإضافة");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("حصل خطأ في الاتصال بالسيرفر");
+    }
+  }
+});

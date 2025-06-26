@@ -65,19 +65,21 @@ getCartItems();
 
 document
   .getElementById("placeOrderBtn")
-  .addEventListener("click", async function () {
+  .addEventListener("click", async function (e) {
+    e.preventDefault();
+
     const paymentMethodInput = document.querySelector(
       'input[name="paymentMethod"]:checked'
     );
     if (!paymentMethodInput) return alert("Please select a payment method");
 
-    const firstName = document.getElementById("fr").value;
-    const companyName = document.getElementById("cn").value;
-    const streetAddress = document.getElementById("add").value;
-    const apartment = document.getElementById("ap").value;
-    const city = document.getElementById("to").value;
-    const phone = document.getElementById("ph").value;
-    const email = document.getElementById("em").value;
+    const firstName = document.getElementById("fr").value.trim();
+    const companyName = document.getElementById("cn").value.trim();
+    const streetAddress = document.getElementById("add").value.trim();
+    const apartment = document.getElementById("ap").value.trim();
+    const city = document.getElementById("to").value.trim();
+    const phone = document.getElementById("ph").value.trim();
+    const email = document.getElementById("em").value.trim();
 
     if (!firstName || !streetAddress || !city || !phone || !email) {
       return alert("Please fill in all required shipping fields.");
@@ -92,36 +94,66 @@ document
     };
 
     const token = localStorage.getItem("token");
-    const cartId = localStorage.getItem("cartId"); // تأكد إنك حفظته قبل كده بعد جلب السلة
+    const cartId = localStorage.getItem("cartId");
 
     if (!token || !cartId) {
       return alert("Missing token or cartId");
     }
 
     try {
-      const res = await fetch(`${BASE_URL}/orders/${cartId}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          shippingAddress,
-          paymentMethod: paymentMethodInput.value,
-        }),
-      });
+      if (paymentMethodInput.value === "Bank") {
+        // دفع Stripe عبر API checkout-session
+        const res = await fetch(
+          `${BASE_URL}/orders/checkout-session/${cartId}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-      const data = await res.json();
+        if (!res.ok) {
+          const errData = await res.json();
+          throw new Error(errData.message || "Failed to create Stripe session");
+        }
 
-      if (res.ok) {
-        window.location.href = "thanks.html";
-        console.log("Order created:", data);
-        // redirect or success message
+        const data = await res.json();
+        console.log(data);
+
+        if (data.session && data.session.url) {
+          // تحويل لصفحة الدفع Stripe
+          window.location.href = data.session.url;
+        } else {
+          throw new Error("Payment URL not found in response");
+        }
+      } else if (paymentMethodInput.value === "Cash on delivery") {
+        // إنشاء طلب عادي مع الدفع عند الاستلام
+        const res = await fetch(`${BASE_URL}/orders/${cartId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            shippingAddress,
+            paymentMethod: paymentMethodInput.value,
+          }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          window.location.href = "thanks.html";
+          console.log("Order created:", data);
+        } else {
+          alert("Order failed: " + (data.message || "Unknown error"));
+        }
       } else {
-        alert("Order failed: " + (data.message || "Unknown error"));
+        alert("Unknown payment method selected");
       }
     } catch (err) {
-      console.error("Order Error:", err);
-      alert("Something went wrong while placing the order.");
+      console.error("Error:", err);
+      alert("Something went wrong: " + err.message);
     }
   });

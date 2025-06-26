@@ -23,7 +23,7 @@ async function fetchUserOrders() {
     data.data.forEach((order) => {
       const card = document.createElement("div");
       card.style.cssText = `
-        width: 300px;
+        width: 380px;
         padding: 15px;
         border: 1px solid #ccc;
         border-radius: 10px;
