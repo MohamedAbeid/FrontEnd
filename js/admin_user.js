@@ -6,18 +6,18 @@ window.addEventListener("DOMContentLoaded", function () {
   if (navElement) {
     if (role === "admin" || role === "manager") {
       navElement.innerHTML = `
-                <li><a href="./MyAccount.html">My profile</a></li>
-
+          <li><a href="./MyAccount.html">My profile</a></li>
           <li><a href="./category.html">Category</a></li>
           <li><a href="./coupon.html">Coupon</a></li>
           <li><a href="./AddProduct.html">Add Product</a></li>
           <li><a href="./product.html">Mange Product</a></li>
+          <li><a href="./alluser.html">All User</a></li>
         `;
     } else {
       navElement.innerHTML = `
           <li><a href="./MyAccount.html">My profile</a></li>
           <li><a href="./MyAddress.html">My Address</a></li>
-          <li><a href="./MyAccount.html">My Wishlist</a></li>
+          <li><a href="./Wishlist.html">My Wishlist</a></li>
           <li><a href="./Myorder.html">My Order</a></li>
         `;
     }
