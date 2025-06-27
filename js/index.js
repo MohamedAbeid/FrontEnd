@@ -51,7 +51,7 @@ function updateCountdown() {
   const minutesDisplay = document.getElementById("Minutes");
   const secondsDisplay = document.getElementById("Seconds");
 
-  const targetDate = new Date("April 20, 2025 00:00:00"); // Set your target date here
+  const targetDate = new Date("July 1, 2025 00:00:00"); // Set your target date here
   const now = new Date();
 
   // Calculate the difference in milliseconds
@@ -92,7 +92,7 @@ function updateCountdownSecond() {
   const minutesDisplay = document.getElementById("min");
   const secondsDisplay = document.getElementById("second");
 
-  const targetDate = new Date("April 18, 2025 00:00:00"); // Set your target date here
+  const targetDate = new Date("July 15, 2025 00:00:00"); // Set your target date here
   const now = new Date();
 
   // Calculate the difference in milliseconds
@@ -133,7 +133,7 @@ function updateCountdownSecondd() {
   const minutesDisplay = document.getElementById("minn");
   const secondsDisplay = document.getElementById("secondd");
 
-  const targetDate = new Date("April 20, 2025 00:00:00"); // Set your target date here
+  const targetDate = new Date("July 10, 2025 00:00:00"); // Set your target date here
   const now = new Date();
 
   // Calculate the difference in milliseconds

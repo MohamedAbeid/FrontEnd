@@ -48,12 +48,7 @@
             </div>
             <div class="search">
               <div class="sea">
-                <input
-                  type="search"
-                  name=""
-                  id=""
-                  placeholder="What are you looking for?"
-                />
+                <input type="search" name="" id="searchInput" placeholder="What are you looking for?" oninput="searchProducts()" />
                 <img src="Images/Component 2.svg" alt="" />
               </div>
               <a href="#"><img src="Images/Vector.svg" alt="" /></a>
@@ -104,9 +99,10 @@
           </div>
           
         </div>
-        <div class="scroll">
+        <div class="scroll" id="productsContainer">
           
         </div>
+        
       </div>
     </div>
     <!-- End Month -->
@@ -202,6 +198,7 @@
     <script type="module" src="./js/signup.js"></script>
     <script type="module" src="./js/productes.js"></script>
     <script type="module" src="./js/shop.js"></script>
+    <script type="module" src="./js/search.js"></script>
     
   </body>
 </html>
