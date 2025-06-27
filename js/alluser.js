@@ -31,12 +31,22 @@ function displayUsers(users) {
       <td>${user.email}</td>
       <td>${user.role}</td>
       <td>
-        <button style=""; class="delete-btn" data-id="${
-          user._id
-        }">Delete</button>
-        <button style="color:blue" class="role-btn" data-id="${
-          user._id
-        }" data-role="${user.role}">Update Role</button>
+        <button style="background-color: #db4444;
+    padding: 8px;
+    border-radius: 7px;
+    border: none;
+    margin: 10px 0;
+    color: white;
+    cursor: pointer;"; class="delete-btn" data-id="${user._id}">Delete</button>
+        <button style="background-color: #0045ff;
+    padding: 8px;
+    border-radius: 7px;
+    border: none;
+    margin: 10px 0;
+    color: white;
+    cursor: pointer;" class="role-btn" data-id="${user._id}" data-role="${
+      user.role
+    }">Update Role</button>
       </td>
     `;
 
