@@ -102,7 +102,7 @@ async function deleteUser(userId) {
 
 async function updateUserRole(userId, newRole) {
   try {
-    const res = await fetch(`${BASE_URL}/users/${userId}`, {
+    const res = await fetch(`${BASE_URL}/users/${userId}/role`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
