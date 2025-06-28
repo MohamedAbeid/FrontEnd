@@ -1,6 +1,6 @@
 import { BASE_URL } from "./base_url.js";
 
-const categoryName = "Computers";
+const categoryName = "Computer";
 
 const token = localStorage.getItem("token");
 document.querySelector(".left h2").textContent = categoryName;
@@ -81,7 +81,7 @@ async function fetchProductsByCategory() {
   } catch (error) {
     console.error("❌ Error fetching products:", error);
     document.getElementById("productsContainer").innerHTML =
-      "<p style='color:red;'>An error occurred while loading the products.</p>";
+      "<p style='color:red;'>An error occurred while loading the products..</p>";
   }
 }
 
