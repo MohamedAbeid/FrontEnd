@@ -60,7 +60,7 @@ fetch(`${BASE_URL}/products?limit=1000`, {
 
 // ✅ دالة حذف المنتج (بعد التصحيح)
 function deleteProduct(productId) {
-  if (confirm("هل أنت متأكد من حذف هذا المنتج؟")) {
+  if (confirm("Are you sure you want to delete this product?")) {
     fetch(`${BASE_URL}/products/${productId}`, {
       method: "DELETE",
       headers: {
@@ -74,14 +74,14 @@ function deleteProduct(productId) {
             `product-box-${productId}`
           );
           if (productBox) productBox.remove();
-          alert("تم حذف المنتج بنجاح");
+          alert("Product deleted successfully");
         } else {
-          alert("حدث خطأ أثناء الحذف");
+          alert("An error occurred while deleting.");
         }
       })
       .catch((err) => {
         console.error("Delete error:", err);
-        alert("فشل الاتصال بالخادم");
+        alert("Connection to server failed");
       });
   }
 }

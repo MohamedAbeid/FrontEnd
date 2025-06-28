@@ -11,12 +11,12 @@ couponForm.addEventListener("submit", async (e) => {
 
   const token = localStorage.getItem("token");
   if (!token) {
-    alert("يجب تسجيل الدخول أولاً لإضافة كوبون.");
+    alert("You must log in first to add a coupon.");
     return;
   }
 
   if (!name || !expire || !discount) {
-    alert("من فضلك أكمل جميع الحقول.");
+    alert("Please complete all fields.");
     return;
   }
 
@@ -37,13 +37,13 @@ couponForm.addEventListener("submit", async (e) => {
     const result = await response.json();
 
     if (response.ok) {
-      alert("تمت إضافة الكوبون بنجاح!");
+      alert("Coupon added successfully!");
       couponForm.reset();
     } else {
-      alert(result.message || "حدث خطأ أثناء إضافة الكوبون.");
+      alert(result.message || "An error occurred while adding the coupon.");
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("حدث خطأ أثناء الاتصال بالخادم.");
+    alert("An error occurred while connecting to the server.");
   }
 });

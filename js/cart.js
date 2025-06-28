@@ -17,7 +17,7 @@ async function addToCart(productId, color) {
   try {
     const token = localStorage.getItem("token");
     if (!token) {
-      alert("لازم تسجل دخول الأول عشان تضيف للسلة!");
+      alert("You must log in first to add to cart!");
       return;
     }
 
@@ -37,15 +37,16 @@ async function addToCart(productId, color) {
       body: JSON.stringify(body),
     });
 
-    if (!response.ok) throw new Error("فيه مشكلة في الاتصال بالـ API");
+    if (!response.ok)
+      throw new Error("There is a problem connecting to the API");
 
     const data = await response.json();
-    console.log("تمت الإضافة بنجاح:", data);
-    alert("تم إضافة المنتج للسلة بنجاح!");
+    console.log("Added successfully:", data);
+    alert("The product has been successfully added to the cart!");
     fetchCart();
   } catch (error) {
-    console.error("حصل خطأ:", error);
-    alert("فيه مشكلة، حاول تاني!");
+    console.error("An error occurred:", error);
+    alert("There's a problem, try again!");
   }
 }
 
@@ -59,7 +60,7 @@ async function fetchCart() {
   try {
     const token = localStorage.getItem("token");
     if (!token) {
-      alert("لازم تسجل دخول الأول!");
+      alert("You must log in first!");
       return;
     }
 
@@ -71,7 +72,8 @@ async function fetchCart() {
       },
     });
 
-    if (!response.ok) throw new Error("فيه مشكلة في جلب بيانات السلة");
+    if (!response.ok)
+      throw new Error("There is a problem fetching the basket data.");
 
     const result = await response.json();
     const cartItems = result.data.cartItems;
@@ -90,18 +92,18 @@ async function fetchCart() {
         if (productResponse.ok) {
           const productData = await productResponse.json();
           const product = productData.data;
-          item.name = product.title || "غير معروف";
+          item.name = product.title || "unknown";
           item.image = product.imageCover || "Images/default.png";
           item.priceAfterDiscount =
             product.priceAfterDiscount !== undefined
               ? product.priceAfterDiscount
               : product.price;
         } else {
-          throw new Error("منتج غير موجود");
+          throw new Error("Product not available");
         }
       } catch (err) {
-        console.warn(`مشاكل في منتج ${item.product}:`, err);
-        item.name = "منتج غير موجود";
+        console.warn(`Product problems${item.product}:`, err);
+        item.name = "Product not available";
         item.image = "Images/default.png";
         item.priceAfterDiscount = item.price;
       }
@@ -110,8 +112,8 @@ async function fetchCart() {
     displayCart(cartItems);
     updateCartCount(cartItems);
   } catch (error) {
-    console.error("حصل خطأ:", error);
-    alert("فيه مشكلة في تحميل السلة!");
+    console.error("An error occurred:", error);
+    alert("There is a problem loading the basket!");
   }
 }
 
@@ -187,7 +189,7 @@ async function updateQuantity(cartItemId, newQuantity) {
   try {
     const token = localStorage.getItem("token");
     if (!token) {
-      alert("لازم تسجل دخول!");
+      alert("You must log in!");
       return;
     }
 
@@ -200,12 +202,13 @@ async function updateQuantity(cartItemId, newQuantity) {
       body: JSON.stringify({ quantity: parseInt(newQuantity) }),
     });
 
-    if (!response.ok) throw new Error("فيه مشكلة في تحديث الكمية");
+    if (!response.ok)
+      throw new Error("There is a problem updating the quantity.");
 
     fetchCart();
   } catch (error) {
-    console.error("حصل خطأ:", error);
-    alert("فيه مشكلة في تحديث الكمية، حاول تاني!");
+    console.error("An error occurred:", error);
+    alert("There was a problem updating the quantity, try again!");
   }
 }
 window.updateQuantity = updateQuantity;
@@ -214,7 +217,7 @@ async function removeFromCart(cartItemId) {
   try {
     const token = localStorage.getItem("token");
     if (!token) {
-      alert("لازم تسجل دخول!");
+      alert("You must log in!");
       return;
     }
 
@@ -226,13 +229,13 @@ async function removeFromCart(cartItemId) {
       },
     });
 
-    if (!response.ok) throw new Error("فيه مشكلة في الحذف");
+    if (!response.ok) throw new Error("There is a problem with deletion.");
 
-    alert("تم حذف المنتج من السلة!");
+    alert("The product has been removed from the cart!");
     fetchCart();
   } catch (error) {
-    console.error("حصل خطأ:", error);
-    alert("فيه مشكلة في الحذف، حاول تاني!");
+    console.error("An error occurred:", error);
+    alert("There was a problem deleting, try again!");
   }
 }
 

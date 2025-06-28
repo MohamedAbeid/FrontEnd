@@ -57,7 +57,7 @@ function displayUsers(users) {
 usersTableBody.addEventListener("click", async (e) => {
   if (e.target.classList.contains("delete-btn")) {
     const userId = e.target.dataset.id;
-    if (confirm("هل أنت متأكد أنك تريد حذف هذا المستخدم؟")) {
+    if (confirm("Are you sure you want to delete this user?")) {
       await deleteUser(userId);
     }
   }
@@ -67,7 +67,7 @@ usersTableBody.addEventListener("click", async (e) => {
     const currentRole = e.target.dataset.role;
 
     let newRole = prompt(
-      "ادخل الدور الجديد (user / admin / manager):",
+      "Enter the new role (user/admin/manager):",
       currentRole
     );
 
@@ -77,7 +77,7 @@ usersTableBody.addEventListener("click", async (e) => {
     ) {
       await updateUserRole(userId, newRole.toLowerCase());
     } else {
-      alert("دور غير صحيح، القيم المسموحة: user, admin, manager");
+      alert("Invalid role, allowed values: user, admin, manager");
     }
   }
 });
@@ -92,7 +92,7 @@ async function deleteUser(userId) {
     });
 
     if (res.ok) {
-      alert("تم حذف المستخدم بنجاح");
+      alert("User deleted successfully");
       fetchUsers();
     }
   } catch (err) {
@@ -112,7 +112,7 @@ async function updateUserRole(userId, newRole) {
     });
 
     if (res.ok) {
-      alert("تم تحديث الدور بنجاح");
+      alert("Role updated successfully");
       fetchUsers();
     }
   } catch (err) {

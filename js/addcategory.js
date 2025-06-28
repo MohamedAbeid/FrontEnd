@@ -27,13 +27,13 @@ document
       const result = await response.json();
 
       if (response.ok) {
-        alert("تم حفظ التصنيف بنجاح ✅");
+        alert("Category saved successfully ✅");
         document.getElementById("categoryForm").reset();
       } else {
         alert("حدث خطأ: " + (result.message || JSON.stringify(result)));
       }
     } catch (error) {
-      console.error("خطأ في الاتصال:", error);
-      alert("حدث خطأ أثناء الاتصال بالسيرفر");
+      console.error("Connection error:", error);
+      alert("An error occurred while connecting to the server");
     }
   });

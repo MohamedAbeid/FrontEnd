@@ -11,7 +11,7 @@ async function loadCategories() {
       },
     });
 
-    if (!response.ok) throw new Error("فشل في جلب البيانات");
+    if (!response.ok) throw new Error("Failed to fetch data");
 
     const result = await response.json();
     const categories = result.data;
@@ -44,7 +44,7 @@ async function loadCategories() {
     deleteButtons.forEach((button) => {
       button.addEventListener("click", async function () {
         const id = this.getAttribute("data-id");
-        if (confirm("هل أنت متأكد من حذف هذا الكاتيجوري؟")) {
+        if (confirm("Are you sure you want to delete this category?")) {
           try {
             const deleteRes = await fetch(`${BASE_URL}/categories/${id}`, {
               method: "DELETE",
@@ -55,16 +55,16 @@ async function loadCategories() {
             });
 
             if (deleteRes.ok || deleteRes.status === 204) {
-              alert("تم حذف الكاتيجوري بنجاح");
+              alert("Category deleted successfully");
               const card = this.closest(".category-card");
               if (card) card.remove();
             } else {
               const errorData = await deleteRes.json();
-              alert(errorData.message || "فشل حذف الكاتيجوري");
+              alert(errorData.message || "Category deletion failed");
             }
           } catch (err) {
             console.error(err);
-            alert("حدث خطأ أثناء حذف الكاتيجوري");
+            alert("An error occurred while deleting the category.");
           }
         }
       });
