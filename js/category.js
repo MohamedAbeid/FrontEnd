@@ -72,7 +72,7 @@ async function loadCategories() {
   } catch (error) {
     console.error(error);
     document.getElementById("addressesContainer").innerHTML =
-      "<p>حدث خطأ أثناء تحميل الكاتيجوريز.</p>";
+      "<p>An error occurred while loading the categories.</p>";
   }
 }
 

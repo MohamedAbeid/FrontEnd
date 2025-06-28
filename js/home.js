@@ -206,7 +206,7 @@ document.addEventListener("click", async function (e) {
 
     const token = localStorage.getItem("token");
     if (!token) {
-      alert("لازم تسجل دخول الأول!");
+      alert("You must log in first.!");
       return;
     }
 
@@ -225,13 +225,13 @@ document.addEventListener("click", async function (e) {
       const data = await res.json();
 
       if (res.ok) {
-        alert("تم إضافة المنتج إلى المفضلة ❤️");
+        alert("The product has been added to favorites. ❤️");
       } else {
-        alert(data.message || "حصل خطأ أثناء الإضافة");
+        alert(data.message || "An error occurred while adding.");
       }
     } catch (err) {
       console.error(err);
-      alert("حصل خطأ في الاتصال بالسيرفر");
+      alert("There was an error connecting to the server.");
     }
   }
 });

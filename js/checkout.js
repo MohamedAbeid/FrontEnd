@@ -10,7 +10,7 @@ async function fetchProductDetails(productId) {
     const data = await res.json();
     return data.data; // المنتج نفسه
   } catch (err) {
-    console.error("خطأ أثناء تحميل بيانات المنتج:", err);
+    console.error("Error loading product data:", err);
     return null;
   }
 }
@@ -54,8 +54,8 @@ async function getCartItems() {
     // ✅ عرض المجموع الكلي داخل العنصر #total
     totalDiv.innerHTML = `$${totalPrice.toFixed(2)}`;
   } catch (error) {
-    console.error("فشل في تحميل الكارت:", error);
-    productsList.innerHTML = `<p style="color:red;">حدث خطأ أثناء تحميل الكارت.</p>`;
+    console.error("Failed to load card:", error);
+    productsList.innerHTML = `<p style="color:red;">An error occurred while loading the card.</p>`;
   }
 }
 

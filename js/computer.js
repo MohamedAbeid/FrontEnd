@@ -81,7 +81,7 @@ async function fetchProductsByCategory() {
   } catch (error) {
     console.error("❌ Error fetching products:", error);
     document.getElementById("productsContainer").innerHTML =
-      "<p style='color:red;'>حدث خطأ أثناء تحميل المنتجات.</p>";
+      "<p style='color:red;'>An error occurred while loading the products.</p>";
   }
 }
 
@@ -102,7 +102,7 @@ function searchProducts() {
         resultsDiv.innerHTML = ""; // تفريغ النتائج السابقة
 
         if (data.length === 0) {
-          resultsDiv.innerHTML = "<p>لا توجد نتائج.</p>";
+          resultsDiv.innerHTML = "<p>No results found.</p>";
           return;
         }
 
@@ -113,7 +113,7 @@ function searchProducts() {
         });
       })
       .catch((error) => {
-        console.error("حدث خطأ أثناء جلب المنتجات:", error);
+        console.error("An error occurred while fetching products:", error);
       });
   }, 300); // تأخير التنفيذ 300ms بعد التوقف عن الكتابة
 }

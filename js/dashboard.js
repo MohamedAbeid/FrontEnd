@@ -94,7 +94,7 @@ async function fetchStats() {
       },
     });
   } catch (err) {
-    console.error("حدث خطأ أثناء جلب الإحصائيات:", err);
+    console.error("An error occurred while fetching statistics.:", err);
   }
 }
 

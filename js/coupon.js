@@ -11,7 +11,7 @@ async function loadCoupons() {
       },
     });
 
-    if (!response.ok) throw new Error("فشل في جلب البيانات");
+    if (!response.ok) throw new Error("Failed to fetch data");
 
     const result = await response.json();
     const coupons = result.data;
@@ -48,7 +48,7 @@ async function loadCoupons() {
     deleteButtons.forEach((button) => {
       button.addEventListener("click", async function () {
         const id = this.getAttribute("data-id");
-        if (confirm("هل أنت متأكد من حذف هذا الكوبون؟")) {
+        if (confirm("Are you sure you want to delete this coupon?؟")) {
           try {
             const deleteRes = await fetch(`${BASE_URL}/coupons/${id}`, {
               method: "DELETE",
@@ -59,7 +59,7 @@ async function loadCoupons() {
             });
 
             if (deleteRes.ok || deleteRes.status === 204) {
-              alert("تم حذف الكوبون بنجاح");
+              alert("The coupon has been successfully deleted.");
               const card = this.closest(".coupon-card");
               if (card) card.remove();
             } else {
@@ -68,7 +68,7 @@ async function loadCoupons() {
             }
           } catch (err) {
             console.error(err);
-            alert("حدث خطأ أثناء حذف الكوبون");
+            alert("An error occurred while deleting the coupon.");
           }
         }
       });
@@ -76,7 +76,7 @@ async function loadCoupons() {
   } catch (error) {
     console.error(error);
     document.getElementById("addressesContainer").innerHTML =
-      "<p>حدث خطأ أثناء تحميل الكوبونات.</p>";
+      "<p>An error occurred while loading the coupons..</p>";
   }
 }
 
