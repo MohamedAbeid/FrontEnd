@@ -4,7 +4,7 @@ const token = localStorage.getItem("token");
 
 async function fetchWishlist() {
   if (!token) {
-    alert("لازم تسجل دخول الأول!");
+    alert("You must log in first!");
     return;
   }
 
@@ -73,11 +73,11 @@ async function fetchWishlist() {
         `;
       });
     } else {
-      alert(data.message || "حصل خطأ في تحميل المفضلة");
+      alert(data.message || "Error loading favorites");
     }
   } catch (err) {
     console.error(err);
-    alert("حصل خطأ في الاتصال بالسيرفر");
+    alert("There was an error connecting to the server.");
   }
 }
 
@@ -89,7 +89,7 @@ document.addEventListener("click", async function (e) {
     const productId = e.target.getAttribute("data-product-id");
     const token = localStorage.getItem("token");
     if (!token) {
-      alert("لازم تسجل دخول الأول!");
+      alert("You must log in first!");
       return;
     }
 
@@ -104,16 +104,16 @@ document.addEventListener("click", async function (e) {
       const data = await res.json();
 
       if (res.ok) {
-        alert("تم حذف المنتج من المفضلة");
+        alert("The product has been removed from favorites");
         // إزالة المنتج من الـ DOM بعد الحذف
         const box = e.target.closest(".box");
         if (box) box.remove();
       } else {
-        alert(data.message || "حصل خطأ أثناء الحذف");
+        alert(data.message || "An error occurred while deleting");
       }
     } catch (err) {
       console.error(err);
-      alert("حصل خطأ في الاتصال بالسيرفر");
+      alert("There was an error connecting to the server.");
     }
   }
 

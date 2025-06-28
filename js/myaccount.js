@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert("تم تحديث البيانات بنجاح");
+        alert("Data updated successfully");
       })
       .catch((err) => {
         console.error("Error updating info:", err);
-        alert("حدث خطأ أثناء تحديث البيانات");
+        alert("An error occurred while updating data.");
       });
   });
 
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const confirmPassword = document.getElementById("confirmPassword").value;
 
       if (newPassword !== confirmPassword) {
-        return alert("كلمة المرور الجديدة وتأكيدها غير متطابقين");
+        return alert("The new password and confirmation do not match.");
       }
 
       fetch(`${BASE_URL}/users/changeMyPassword`, {
@@ -79,11 +79,11 @@ document.addEventListener("DOMContentLoaded", function () {
       })
         .then((res) => res.json())
         .then((data) => {
-          alert("تم تغيير كلمة المرور بنجاح");
+          alert("Password changed successfully");
         })
         .catch((err) => {
           console.error("Error changing password:", err);
-          alert("حدث خطأ أثناء تغيير كلمة المرور");
+          alert("An error occurred while changing your password.");
         });
     });
 });

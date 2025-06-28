@@ -80,42 +80,8 @@ async function fetchProductsByCategory() {
   } catch (error) {
     console.error("❌ Error fetching products:", error);
     document.getElementById("productsContainer").innerHTML =
-      "<p style='color:red;'>حدث خطأ أثناء تحميل المنتجات.</p>";
+      "<p style='color:red;'>An error occurred while loading the products.</p>";
   }
 }
 
 fetchProductsByCategory();
-
-let searchTimeout; // لتأخير البحث بعد التوقف عن الكتابة (debounce)
-
-function searchProducts() {
-  clearTimeout(searchTimeout); // إلغاء أي بحث سابق قبل البدء
-
-  searchTimeout = setTimeout(() => {
-    const keyword = document.getElementById("searchInput").value.trim();
-    const url = `${BASE_URL}/products?keyword=${encodeURIComponent(keyword)}`;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        const resultsDiv = document.getElementsByClassName("scroll");
-        resultsDiv.innerHTML = ""; // تفريغ النتائج السابقة
-
-        if (data.length === 0) {
-          resultsDiv.innerHTML = "<p>لا توجد نتائج.</p>";
-          return;
-        }
-
-        data.forEach((product) => {
-          const item = document.createElement("div");
-          item.textContent = product.name; // أو أي تفاصيل تحب تعرضها
-          resultsDiv.appendChild(item);
-        });
-      })
-      .catch((error) => {
-        console.error("حدث خطأ أثناء جلب المنتجات:", error);
-      });
-  }, 300); // تأخير التنفيذ 300ms بعد التوقف عن الكتابة
-}
-
-window.searchProducts = searchProducts;

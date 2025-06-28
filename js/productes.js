@@ -173,7 +173,7 @@ document.getElementById("addToCartBtn").addEventListener("click", function (e) {
 
   const selectedColorBox = document.querySelector(".color-box.selected");
   if (!selectedColorBox) {
-    alert("من فضلك اختر اللون أولاً");
+    alert("Please choose the color first.");
     return;
   }
   const selectedColor = selectedColorBox.getAttribute("data-color");
@@ -184,7 +184,7 @@ document.getElementById("addToCartBtn").addEventListener("click", function (e) {
   const sizeContainer = document.getElementById("sizeContainer");
   if (sizeContainer && sizeContainer.children.length > 0) {
     if (!selectedSizeBox) {
-      alert("من فضلك اختر المقاس أولاً");
+      alert("Please choose the size first");
       return;
     }
     selectedSize = selectedSizeBox.textContent;
@@ -192,13 +192,13 @@ document.getElementById("addToCartBtn").addEventListener("click", function (e) {
 
   const quantity = parseInt(document.getElementById("quantity").value);
   if (isNaN(quantity) || quantity <= 0) {
-    alert("حدد كمية صحيحة");
+    alert("Specify the correct quantity");
     return;
   }
 
   const token = localStorage.getItem("token");
   if (!token) {
-    alert("لازم تسجل دخول الأول!");
+    alert("You must log in first!");
     return;
   }
 
@@ -217,7 +217,7 @@ document.getElementById("addToCartBtn").addEventListener("click", function (e) {
     body: JSON.stringify(body),
   })
     .then((res) => {
-      if (!res.ok) throw new Error("فشل إضافة المنتج للسلة");
+      if (!res.ok) throw new Error("Failed to add product to cart");
       return res.json();
     })
     .then(() => {
@@ -236,7 +236,7 @@ document.getElementById("addToCartBtn").addEventListener("click", function (e) {
       );
 
       if (!cartItem) {
-        throw new Error("لم يتم العثور على المنتج في السلة");
+        throw new Error("The product was not found in the cart");
       }
 
       return fetch(`${BASE_URL}/cart/${cartItem._id}`, {
@@ -251,14 +251,16 @@ document.getElementById("addToCartBtn").addEventListener("click", function (e) {
       });
     })
     .then((res) => {
-      if (!res.ok) throw new Error("فشل تحديث الكمية");
+      if (!res.ok) throw new Error("Failed to update quantity");
       return res.json();
     })
     .then(() => {
-      alert("تم إضافة المنتج وتحديث الكمية بنجاح!");
+      alert(
+        "The product has been added and the quantity updated successfully!"
+      );
     })
     .catch((err) => {
       console.error(err);
-      alert("حصلت مشكلة، حاول تاني!");
+      alert("There's a problem, try again!");
     });
 });

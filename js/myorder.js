@@ -14,7 +14,7 @@ async function fetchUserOrders() {
     const data = await res.json();
 
     if (data.results === 0) {
-      ordersContainer.innerHTML = "<p>لا توجد طلبات حتى الآن.</p>";
+      ordersContainer.innerHTML = "<p>There are no requests yet.</p>";
       return;
     }
 
@@ -44,7 +44,8 @@ async function fetchUserOrders() {
     });
   } catch (err) {
     console.error(err);
-    ordersContainer.innerHTML = "<p>حدث خطأ أثناء تحميل الطلبات.</p>";
+    ordersContainer.innerHTML =
+      "<p>An error occurred while loading requests.</p>";
   }
 }
 

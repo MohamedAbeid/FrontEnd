@@ -10,7 +10,7 @@ async function loadAddresses() {
       },
     });
 
-    if (!response.ok) throw new Error("فشل في جلب البيانات");
+    if (!response.ok) throw new Error("Failed to fetch data");
 
     const result = await response.json();
     const addresses = result.data;
@@ -49,7 +49,7 @@ async function loadAddresses() {
     deleteButtons.forEach((button) => {
       button.addEventListener("click", async function () {
         const id = this.getAttribute("data-id");
-        if (confirm("هل أنت متأكد من حذف هذا العنوان؟")) {
+        if (confirm("Are you sure you want to delete this address?")) {
           try {
             const deleteRes = await fetch(`${BASE_URL}/addresses/${id}`, {
               method: "DELETE",
@@ -59,12 +59,12 @@ async function loadAddresses() {
               },
             });
 
-            if (!deleteRes.ok) throw new Error("فشل حذف العنوان");
-            alert("تم حذف العنوان بنجاح");
+            if (!deleteRes.ok) throw new Error("Failed to delete address");
+            alert("Address deleted successfully");
             loadAddresses(); // تحديث القائمة بعد الحذف
           } catch (err) {
             console.error(err);
-            alert("حدث خطأ أثناء حذف العنوان");
+            alert("An error occurred while deleting the address.");
           }
         }
       });
@@ -72,7 +72,7 @@ async function loadAddresses() {
   } catch (error) {
     console.error(error);
     document.getElementById("addressesContainer").innerHTML =
-      "<p>حدث خطأ أثناء تحميل العناوين.</p>";
+      "<p>An error occurred while loading the titles.</p>";
   }
 }
 
