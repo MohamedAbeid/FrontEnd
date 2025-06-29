@@ -40,7 +40,7 @@ async function fetchStats() {
 
     let stripeTotalAmount = 0;
     stripePayments.forEach((session) => {
-      stripeTotalAmount += session.amount_total / 100 || 0; // المبلغ بالسنتات يتحول للجنيه
+      stripeTotalAmount += session.amount_total / 100 || 0;
     });
 
     // الإجمالي النهائي
@@ -51,30 +51,18 @@ async function fetchStats() {
     document.getElementById("usersCount").textContent = usersCount;
     document.getElementById("ordersCount").textContent = ordersCount;
     document.getElementById("paymentsCount").textContent = totalPaymentsCount;
-    document.getElementById("totalAmount").textContent = totalAmount + " جنيه";
+    document.getElementById("totalAmount").textContent = totalAmount + " $";
 
     // رسم بياني
     const ctx = document.getElementById("statsChart").getContext("2d");
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: [
-          "المستخدمين",
-          "الطلبات",
-          "دفع كاش",
-          "دفع Stripe",
-          "إجمالي المبالغ",
-        ],
+        labels: ["Users", "Orders", "Total"],
         datasets: [
           {
-            label: "إحصائيات",
-            data: [
-              usersCount,
-              ordersCount,
-              cashPaymentsCount,
-              stripePaymentsCount,
-              totalAmount,
-            ],
+            label: "statistics",
+            data: [usersCount, ordersCount, totalAmount],
             backgroundColor: [
               "#007bff",
               "#28a745",

@@ -12,15 +12,20 @@
     <!-- Header -->
     <div class="header">
       <div class="container">
-        <!-- Top Header -->
+        <!-- Start Top Header -->
         <div class="top_header">
           <span
-            >Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
-            <a href="product10.html" class="btn">Shop Now</a></span
+            >Summer Sale For All Swim Suits And Free Express Delivery - OFF
+            50%!<a
+              href="https://mohamedabeid.github.io/FrontEnd/productdes.html?id=68607a97f779e59e043fa3af"
+              class="btn"
+              >ShopNow</a
+            ></span
           >
           <span class="lang">
             <img
-              class="Moon toggle-btn"
+              class="Moon"
+              class="toggle-btn"
               onclick="toggleMode()"
               src="Images/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
               alt=""
@@ -28,7 +33,8 @@
             English <img src="Images/DropDown.svg" alt="" />
           </span>
         </div>
-        <!-- Nav Bar -->
+        <!-- End Top Header -->
+        <!-- Start Nav Bar -->
         <div class="heading">
           <div class="container">
             <div class="logo">
@@ -38,7 +44,7 @@
             </div>
             <div class="links">
               <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="contactus.html">Contact</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="sginup.html">Sign Up</a></li>
@@ -46,10 +52,18 @@
             </div>
             <div class="search">
               <div class="sea">
-                <input type="search" placeholder="What are you looking for?" />
+                <input
+                  type="search"
+                  name=""
+                  id="searchInput"
+                  placeholder="What are you looking for?"
+                  oninput="searchProducts()"
+                />
                 <img src="Images/Component 2.svg" alt="" />
               </div>
-              <a href="#"><img src="Images/Vector.svg" alt="" /></a>
+              <a href="Wishlist.html">
+                <img src="Images/Vector.svg" alt="" />
+              </a>
               <a href="cart.html" class="cart-icon">
                 <img src="Images/Cart1.svg" alt="" />
                 <span class="cart-count">0</span>
@@ -58,35 +72,31 @@
                 <img src="Images/User=Off.svg" alt="" />
                 <ul>
                   <li>
-                    <img src="Images/user.svg" alt="" /><a href="MyAccount.html"
-                      >Manage My Account</a
-                    >
+                    <img src="Images/user.svg" alt="" />
+                    <a href="MyAccount.html">Manage My Account</a>
                   </li>
                   <li>
-                    <img src="Images/icon-mallbag.svg" alt="" /><a href="#"
-                      >My Order</a
-                    >
+                    <img src="Images/icon-mallbag.svg" alt="" />
+                    <a href="Myorder.html">My Order</a>
                   </li>
                   <li>
-                    <img src="Images/icon-cancel.svg" alt="" /><a href="#"
-                      >My Cancellations</a
-                    >
+                    <img src="Images/icon-cancel.svg" alt="" />
+                    <a href="#">My Cancellations</a>
                   </li>
                   <li>
-                    <img src="Images/Icon-Reviews.svg" alt="" /><a href="#"
-                      >My Reviews</a
-                    >
+                    <img src="Images/Icon-Reviews.svg" alt="" />
+                    <a href="#">My Reviews</a>
                   </li>
-                  <li>
-                    <img src="Images/Icon-logout.svg" alt="" /><a href="#"
-                      >Logout</a
-                    >
+                  <li id="logoutBtn">
+                    <img src="Images/Icon-logout.svg" alt="" />
+                    <a href="#">Logout</a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+        <!-- End Nav Bar -->
       </div>
     </div>
 

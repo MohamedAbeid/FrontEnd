@@ -39,7 +39,6 @@ async function fetchProductsByCategory() {
       box.innerHTML = `
         <div class="box" data-id="${product._id}">
           <div class="photo">
-            <button onclick="location.href='productdes.html?id=${product._id}'">
               <img src="${product.imageCover}" alt="${
         product.title
       }" width="190px" />
@@ -53,10 +52,9 @@ async function fetchProductsByCategory() {
               <span class="fev" data-product-id="product${index}">
                 <i class="fa-regular fa-heart" id="heart-product${index}"></i>
               </span>
-            </button>
-      <a href="#" class="add_cart" onclick="addToCart('${
+      <a href="productdes.html?id=${
         product._id
-      }')">Add To Cart</a>
+      }" class="add_cart">View Details</a>
 
           </div>
           <div class="text">
@@ -73,7 +71,6 @@ async function fetchProductsByCategory() {
               <img src="Images/Star.svg" alt="star" />
             </div>
           </div>
-        </div>
         `;
 
       container.appendChild(box);
@@ -86,36 +83,3 @@ async function fetchProductsByCategory() {
 }
 
 fetchProductsByCategory();
-let searchTimeout; // لتأخير البحث بعد التوقف عن الكتابة (debounce)
-
-function searchProducts() {
-  clearTimeout(searchTimeout); // إلغاء أي بحث سابق قبل البدء
-
-  searchTimeout = setTimeout(() => {
-    const keyword = document.getElementById("searchInput").value.trim();
-    const url = `${BASE_URL}/products?keyword=${encodeURIComponent(keyword)}`;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        const resultsDiv = document.getElementsByClassName("scroll");
-        resultsDiv.innerHTML = ""; // تفريغ النتائج السابقة
-
-        if (data.length === 0) {
-          resultsDiv.innerHTML = "<p>No results found.</p>";
-          return;
-        }
-
-        data.forEach((product) => {
-          const item = document.createElement("div");
-          item.textContent = product.name; // أو أي تفاصيل تحب تعرضها
-          resultsDiv.appendChild(item);
-        });
-      })
-      .catch((error) => {
-        console.error("An error occurred while fetching products:", error);
-      });
-  }, 300); // تأخير التنفيذ 300ms بعد التوقف عن الكتابة
-}
-
-window.searchProducts = searchProducts;

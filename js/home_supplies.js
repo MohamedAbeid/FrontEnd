@@ -39,7 +39,6 @@ async function fetchProductsByCategory() {
       box.innerHTML = `
         <div class="box" data-id="${product._id}">
           <div class="photo">
-            <button onclick="location.href='productdes.html?id=${product._id}'">
               <img src="${product.imageCover}" alt="${
         product.title
       }" width="190px" />
@@ -53,10 +52,9 @@ async function fetchProductsByCategory() {
               <span class="fev" data-product-id="product${index}">
                 <i class="fa-regular fa-heart" id="heart-product${index}"></i>
               </span>
-            </button>
-      <a href="#" class="add_cart" onclick="addToCart('${
+      <a href="productdes.html?id=${
         product._id
-      }')">Add To Cart</a>
+      }" class="add_cart">View Details</a>
 
           </div>
           <div class="text">
@@ -73,7 +71,6 @@ async function fetchProductsByCategory() {
               <img src="Images/Star.svg" alt="star" />
             </div>
           </div>
-        </div>
         `;
 
       container.appendChild(box);

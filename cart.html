@@ -22,7 +22,11 @@
         <div class="top_header">
           <span
             >Summer Sale For All Swim Suits And Free Express Delivery - OFF
-            50%!<a href="product10.html" class="btn">ShopNow</a></span
+            50%!<a
+              href="https://mohamedabeid.github.io/FrontEnd/productdes.html?id=68607a97f779e59e043fa3af"
+              class="btn"
+              >ShopNow</a
+            ></span
           >
           <span class="lang">
             <img
@@ -57,12 +61,15 @@
                 <input
                   type="search"
                   name=""
-                  id=""
+                  id="searchInput"
                   placeholder="What are you looking for?"
+                  oninput="searchProducts()"
                 />
                 <img src="Images/Component 2.svg" alt="" />
               </div>
-              <a href="#"><img src="Images/Vector.svg" alt="" /></a>
+              <a href="Wishlist.html">
+                <img src="Images/Vector.svg" alt="" />
+              </a>
               <a href="cart.html" class="cart-icon">
                 <img src="Images/Cart1.svg" alt="" />
                 <span class="cart-count">0</span>
@@ -76,7 +83,7 @@
                   </li>
                   <li>
                     <img src="Images/icon-mallbag.svg" alt="" />
-                    <a href="#">My Order</a>
+                    <a href="Myorder.html">My Order</a>
                   </li>
                   <li>
                     <img src="Images/icon-cancel.svg" alt="" />
@@ -86,7 +93,7 @@
                     <img src="Images/Icon-Reviews.svg" alt="" />
                     <a href="#">My Reviews</a>
                   </li>
-                  <li>
+                  <li id="logoutBtn">
                     <img src="Images/Icon-logout.svg" alt="" />
                     <a href="#">Logout</a>
                   </li>
@@ -212,7 +219,7 @@
       </div>
     </div>
     <!-- End Footer -->
-    <script type="module" src="./js/index.js"></script>
+    <script src="./js/index.js"></script>
     <script type="module" src="./js/home.js"></script>
     <script type="module" src="./js/loginAndAccount.js"></script>
     <script type="module" src="./js/admin_user.js"></script>
@@ -225,6 +232,8 @@
     <script type="module" src="./js/logout.js"></script>
     <script type="module" src="./js/myaccount.js"></script>
     <script type="module" src="./js/productde.js"></script>
+    <script type="module" src="./js/productes.js"></script>
+
     <script type="module" src="./js/signup.js"></script>
   </body>
 </html>

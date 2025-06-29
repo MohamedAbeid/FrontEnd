@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="Images/shop-bag-svgrepo-com.svg">
+    <link rel="icon" href="Images/shop-bag-svgrepo-com.svg" />
   </head>
   <body>
     <div class="header">
@@ -22,11 +22,21 @@
         <div class="top_header">
           <span
             >Summer Sale For All Swim Suits And Free Express Delivery - OFF
-            50%!<a href="product10.html" class="btn">ShopNow</a></span
+            50%!<a
+              href="https://mohamedabeid.github.io/FrontEnd/productdes.html?id=68607a97f779e59e043fa3af"
+              class="btn"
+              >ShopNow</a
+            ></span
           >
-          <span class="lang"> 
-            <img class="Moon"   class="toggle-btn" onclick="toggleMode()" src="Images/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
-            English <img src="Images/DropDown.svg" alt=""/>
+          <span class="lang">
+            <img
+              class="Moon"
+              class="toggle-btn"
+              onclick="toggleMode()"
+              src="Images/dark_mode_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+            />
+            English <img src="Images/DropDown.svg" alt="" />
           </span>
         </div>
         <!-- End Top Header -->
@@ -51,13 +61,19 @@
                 <input
                   type="search"
                   name=""
-                  id=""
+                  id="searchInput"
                   placeholder="What are you looking for?"
+                  oninput="searchProducts()"
                 />
                 <img src="Images/Component 2.svg" alt="" />
               </div>
-              <a href="#"><img src="Images/Vector.svg" alt="" /></a>
-              <a href="cart.html"><img src="Images/Cart1.svg" alt="" /></a>
+              <a href="Wishlist.html">
+                <img src="Images/Vector.svg" alt="" />
+              </a>
+              <a href="cart.html" class="cart-icon">
+                <img src="Images/Cart1.svg" alt="" />
+                <span class="cart-count">0</span>
+              </a>
               <div class="account">
                 <img src="Images/User=Off.svg" alt="" />
                 <ul>
@@ -67,7 +83,7 @@
                   </li>
                   <li>
                     <img src="Images/icon-mallbag.svg" alt="" />
-                    <a href="#">My Order</a>
+                    <a href="Myorder.html">My Order</a>
                   </li>
                   <li>
                     <img src="Images/icon-cancel.svg" alt="" />
@@ -77,7 +93,7 @@
                     <img src="Images/Icon-Reviews.svg" alt="" />
                     <a href="#">My Reviews</a>
                   </li>
-                  <li>
+                  <li id="logoutBtn">
                     <img src="Images/Icon-logout.svg" alt="" />
                     <a href="#">Logout</a>
                   </li>
@@ -86,8 +102,6 @@
             </div>
           </div>
         </div>
-      </div>
-
         <!-- End Nav Bar -->
       </div>
     </div>
@@ -102,15 +116,12 @@
           <div class="left">
             <h2>Wishlist</h2>
           </div>
-          
         </div>
-        <div class="scroll">
-          
-        </div>
+        <div class="scroll"></div>
       </div>
     </div>
     <!-- End Month -->
-   
+
     <!-- Start Footer -->
     <div class="footer">
       <div class="container">
@@ -186,22 +197,16 @@
       </div>
     </div>
     <!-- End Footer -->
-    <script type="module" src="./js/index.js"></script>
-    <script type="module" src="./js/home.js"></script>
-    <script type="module" src="./js/loginAndAccount.js"></script>
+    <script src="./js/index.js"></script>
     <script type="module" src="./js/admin_user.js"></script>
-    <script type="module" src="./js/logout.js"></script>
     <script type="module" src="./js/cart.js"></script>
-    <script type="module" src="./js/addcategory.js"></script>
-    <script type="module" src="./js/category.js"></script>
-    <script type="module" src="./js/address.js"></script>
     <script type="module" src="./js/login.js"></script>
+    <script type="module" src="./js/loginAndAccount.js"></script>
     <script type="module" src="./js/logout.js"></script>
-    <script type="module" src="./js/myaccount.js"></script>
+    <script type="module" src="./js/main.js"></script>
     <script type="module" src="./js/productde.js"></script>
-    <script type="module" src="./js/signup.js"></script>
     <script type="module" src="./js/productes.js"></script>
+    <script type="module" src="./js/search.js"></script>
     <script type="module" src="./js/wishlist.js"></script>
-    
   </body>
 </html>

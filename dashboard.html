@@ -66,7 +66,11 @@
         <div class="top_header">
           <span
             >Summer Sale For All Swim Suits And Free Express Delivery - OFF
-            50%!<a href="product10.html" class="btn">ShopNow</a></span
+            50%!<a
+              href="https://mohamedabeid.github.io/FrontEnd/productdes.html?id=68607a97f779e59e043fa3af"
+              class="btn"
+              >ShopNow</a
+            ></span
           >
           <span class="lang">
             <img
@@ -97,7 +101,17 @@
               </ul>
             </div>
             <div class="search">
-              <a href="favorites.html">
+              <div class="sea">
+                <input
+                  type="search"
+                  name=""
+                  id="searchInput"
+                  placeholder="What are you looking for?"
+                  oninput="searchProducts()"
+                />
+                <img src="Images/Component 2.svg" alt="" />
+              </div>
+              <a href="Wishlist.html">
                 <img src="Images/Vector.svg" alt="" />
               </a>
               <a href="cart.html" class="cart-icon">
@@ -109,13 +123,11 @@
                 <ul>
                   <li>
                     <img src="Images/user.svg" alt="" />
-                    <a href="MyAccount.html" class="active"
-                      >Manage My Account</a
-                    >
+                    <a href="MyAccount.html">Manage My Account</a>
                   </li>
                   <li>
                     <img src="Images/icon-mallbag.svg" alt="" />
-                    <a href="#">My Order</a>
+                    <a href="Myorder.html">My Order</a>
                   </li>
                   <li>
                     <img src="Images/icon-cancel.svg" alt="" />
@@ -149,20 +161,20 @@
           <div class="right">
             <div class="stats-container">
               <div class="stat-box">
-                <h3>عدد المستخدمين</h3>
+                <h3>Number of users</h3>
                 <p id="usersCount">0</p>
               </div>
               <div class="stat-box">
-                <h3>عدد الطلبات</h3>
+                <h3>Number of Orders</h3>
                 <p id="ordersCount">0</p>
               </div>
               <div class="stat-box">
-                <h3>عدد عمليات الدفع</h3>
+                <h3>Number of payments</h3>
                 <p id="paymentsCount">0</p>
               </div>
               <div class="stat-box">
-                <h3>إجمالي المبالغ</h3>
-                <p id="totalAmount">0 جنيه</p>
+                <h3>Total amounts</h3>
+                <p id="totalAmount">0 $</p>
               </div>
             </div>
 
@@ -247,7 +259,7 @@
       </div>
     </div>
     <!-- End Footer -->
-    <script type="module" src="./js/index.js"></script>
+    <script src="./js/index.js"></script>
     <script type="module" src="./js/home.js"></script>
     <script type="module" src="./js/loginAndAccount.js"></script>
     <script type="module" src="./js/admin_user.js"></script>
